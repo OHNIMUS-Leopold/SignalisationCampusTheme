@@ -1,6 +1,6 @@
 # SignalisationCampusTheme
 
-Thème Wordpress pour la carte interactive 3D du site [(URL à définir...)]() intégrant la signalétique numérique du Campus universitaire des Portes du Jura de Montbéliard.
+Thème Wordpress pour la carte interactive 3D du site [(URL à définir...)](https://github.com/OHNIMUS-Leopold/SignalisationCampusTheme) intégrant la signalétique numérique du Campus universitaire des Portes du Jura de Montbéliard.
 
 Thème réalisé par le groupe SALT pour le projet Signalisation Campus.
 
