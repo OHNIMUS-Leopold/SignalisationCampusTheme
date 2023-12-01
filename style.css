@@ -1,0 +1,89 @@
+/*
+Theme Name: Theme Signalisation Campus
+Theme URI: https://portfolio.leopold-ohnimus.fr
+Author: Léopold OHNIMUS
+Author URI: https://portfolio.leopold-ohnimus.fr
+Description: Thème développé pour le projet de signalisation du campus des Portes du Jura
+Version: 0.1
+Tags: simple, facile, sans danger, base pour la suite
+*/
+
+/* 
+font-family: 'Manrope', sans-serif;
+font-family: 'Outfit', sans-serif; */
+
+* {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;   
+}
+
+.header {
+    background-color: green;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 44px 18px 18px 18px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.main-nav,
+.QRCode {
+    display: none;
+}
+
+.titre {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+}
+
+.bouton {
+    display: contents;
+    cursor: pointer;
+}
+
+.perso {
+    padding-bottom: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-color: white;
+    display: block;
+}
+
+.perso p {
+    margin-top: 20px
+}
+
+
+
+.draggable {
+    position: absolute;
+    bottom: -90%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+
+    height: 700px;
+    background-color: #3498db;
+    color: #fff;
+    text-align: center;
+    
+    cursor: grab;
+}
+
+
+.spanBtn::before {
+    content: "";
+    display: block;
+    margin: 20px auto 0 auto;
+    border-bottom: 4px solid black;
+    width: 10%;
+}

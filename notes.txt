@@ -1,0 +1,15 @@
+- MCD
+- Uses Cases
+- Techno utilisées
+- Intégration
+
+Pour intégration
+- Imports JS
+- Scène + cam
+- Import map
+- Eléments cliquables
+- Géoloc
+- Lumières
+- Animation (Rendu)
+- Contrôles cam
+- QR Code
