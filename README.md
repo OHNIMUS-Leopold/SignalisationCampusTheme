@@ -1,4 +1,4 @@
-# SignalisationCampusTheme
+# Signalisation Campus
 
 Thème Wordpress pour la carte interactive 3D du site [(URL à définir...)](https://github.com/OHNIMUS-Leopold/SignalisationCampusTheme) intégrant la signalétique numérique du Campus universitaire des Portes du Jura de Montbéliard.
 
@@ -22,7 +22,7 @@ L'équipe SALT se compose de quatre étudiants, chacun assumant un rôle spécif
 
 ## Notre commanditaire
 
-Le projet Campus Signalisation est réalisé dans le cadre d'un exercice pédagogique au sein du département MMI de Montbéliard. Il vise à proposer une nouvelle signalétique pour le campus universitaire de Montbéliard (web et réel).
+Le projet Signalisation Campus est réalisé dans le cadre d'un exercice pédagogique au sein du département MMI de Montbéliard. Il vise à proposer une nouvelle signalétique pour le campus universitaire de Montbéliard (physique et numérique).
 
 ### Objectif du projet
 
@@ -31,7 +31,8 @@ Le projet Campus Signalisation est réalisé dans le cadre d'un exercice pédago
 
 ### Partenariat avec le Pôle Métropolitain
 
-Lors de réunions, nous avons identifié une opportunité de collaboration avec le Pôle Métropolitain. Nous explorons les possibilités de coopération avec cette entité, discutant notamment lors d'une réunion le jeudi 19 octobre.
+Lors de réunions, nous avons identifié une opportunité de collaboration avec le Pôle Métropolitain. 
+Nous explorons les possibilités de coopération avec cette entité.
 
 ### Commanditaire
 
