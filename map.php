@@ -18,13 +18,13 @@ Template Name: Map - Léopold OHNIMUS
     <div  id="divCache"  style="display: none;">MONTRE LA DIV</div>  
 </div>
 
-<div class="per">
-    <button>
-        montre
+<form class="search">
+    <label for="search-input" class="search-label">Recherche</label>
+    <input type="text" id="search-input" class="search-bar" placeholder="Recherche">
+    <button class="search-btn">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/icn/search.svg" alt="Recherche">
     </button>
-    <p>contenu à superposer</p>
-    <p>contenu à superposer</p>
-</div>
+</form>
 
 <div id="draggableDiv" class="draggable">
     <span id="draggableButton" class="spanBtn"></span>
