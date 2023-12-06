@@ -15,7 +15,6 @@ Template Name: Map - Léopold OHNIMUS
 </div>
 <div class="mapContainer">
     <div id="container3D" style="overflow-x: hidden;"></div>
-    <div  id="divCache"  style="display: none;">MONTRE LA DIV</div>  
 </div>
 
 <form class="search">
@@ -28,6 +27,9 @@ Template Name: Map - Léopold OHNIMUS
 
 <div id="draggableDiv" class="draggable">
     <span id="draggableButton" class="spanBtn"></span>
+    <div class="contenu">
+        <div  id="divCache"  style="display: none;">MONTRE LA DIV</div>
+    </div>  
 </div>
 
 
@@ -80,7 +82,18 @@ Template Name: Map - Léopold OHNIMUS
       //new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load('http://localhost/signalisation/wp-content/uploads/2023/10/bsness.jpg') }),
       //new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load('http://localhost/signalisation/wp-content/uploads/2023/10/eh.jpg') }),
     ];
-    
+
+    // Vérification de l'ancre dans l'URL et changement de la couleur du cube en fonction
+    if (window.location.hash === '#yellow') {
+        // Changement de la couleur du cube
+        materialImg[0] = new THREE.MeshPhongMaterial({ color: 0xffff00 }); // Yellow
+        materialImg[1] = new THREE.MeshPhongMaterial({ color: 0xffff00 }); // Yellow
+        materialImg[2] = new THREE.MeshPhongMaterial({ color: 0xffff00 }); // Yellow
+        materialImg[3] = new THREE.MeshPhongMaterial({ color: 0xffff00 }); // Yellow
+        materialImg[4] = new THREE.MeshPhongMaterial({ color: 0xffff00 }); // Yellow
+        materialImg[5] = new THREE.MeshPhongMaterial({ color: 0xffff00 }); // Yellow
+    }
+
     // Création du cube avec la géométrie et les textures
     const imageCube = new THREE.Mesh(cubeGeometry, materialImg);
     // Positionnage du cube dans la scène

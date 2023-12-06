@@ -35,6 +35,12 @@ font-family: 'Outfit', sans-serif; */
     display: none;
 }
 
+.QRCode {
+    margin-top: 80px;
+    z-index: 2;
+    position: relative;
+}
+
 .titre {
     font-family: 'Outfit', sans-serif;
     font-weight: 500;
@@ -112,4 +118,8 @@ font-family: 'Outfit', sans-serif; */
     margin: 20px auto 0 auto;
     border-bottom: 4px solid black;
     width: 10%;
+}
+
+.contenu {
+    display: flex;
 }
