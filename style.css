@@ -36,9 +36,15 @@ font-family: 'Outfit', sans-serif; */
 }
 
 .QRCode {
-    margin-top: 80px;
-    z-index: 2;
+    margin-top: 0px;
+    z-index: 50;
     position: relative;
+    background-color: yellow;
+    height: 100vh;
+}
+
+#reader {
+    margin-top: 50px;
 }
 
 .titre {

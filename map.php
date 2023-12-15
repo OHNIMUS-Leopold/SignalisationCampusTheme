@@ -10,6 +10,7 @@ Template Name: Map - Léopold OHNIMUS
 <?php get_header(); ?>
 
 <div class="QRCode">
+    <button id="btnBack">Cliquez-moi</button>
     <div id="reader"></div>
     <div id="result"></div>
 </div>
@@ -170,43 +171,54 @@ Template Name: Map - Léopold OHNIMUS
 
     // Fonction pour gérer le clic de la souris et afficher/cacher les éléments
     function onClick(event) {
-        // Calcul de la position de la souris dans le viewport
-        const rect = renderer.domElement.getBoundingClientRect();
-        const x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-        const y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+        // Récupération de l'ID de l'élément cliqué et de ses ancêtres
+        const clickedElementId = event.target.id;
+        const draggableDivAncestorId = event.target.closest('#draggableDiv')?.id;
 
-        // Mise à jour des coordonnées de la souris
-        mouse.x = x;
-        mouse.y = y;
+        // Si l'élément cliqué ou l'un de ses ancêtres est dans la div draggableDiv, ne rien faire
+        if (clickedElementId === 'draggableDiv' || draggableDivAncestorId === 'draggableDiv') {
+            return;
 
-        // Mise à jour du rayon avec la position de la souris
-        raycaster.setFromCamera(mouse, camera);
-
-        // On vérifie si le rayon intersecte le cube
-        const intersects = raycaster.intersectObject(imageCube);
-
-        // Récupération de la div à afficher/cacher
-        const divCache = document.getElementById('divCache');
-
-        // Si le rayon intersecte le cube, on change la couleur du cube et on affiche la div
-        if (intersects.length > 0) {
-            const cube = intersects[0].object;
-
-            // Toggle entre vert et jaune
-            if (!cubeIsYellow) {
-                // Changement de la couleur du cube en jaune
-                cube.material.forEach(material => (material.color.setHex(0xffff00)));
-                // Affichage de la div
-                divCache.style.display = 'block';
-                // Mise à jour de l'état du cube
-                cubeIsYellow = true;
-            }
+        // Sinon, on applique le comportement normal
         } else {
-            // Si le clic est en dehors du cube, on remet le cube en vert et on cache la div
-            imageCube.material.forEach(material => (material.color.setHex(0x00ff00)));
-            divCache.style.display = 'none';
-            // Mise à jour de l'état du cube
-            cubeIsYellow = false;
+            // Calcul de la position de la souris dans le viewport
+            const rect = renderer.domElement.getBoundingClientRect();
+            const x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+            const y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+            // Mise à jour des coordonnées de la souris
+            mouse.x = x;
+            mouse.y = y;
+
+            // Mise à jour du rayon avec la position de la souris
+            raycaster.setFromCamera(mouse, camera);
+
+            // On vérifie si le rayon intersecte le cube
+            const intersects = raycaster.intersectObject(imageCube);
+
+            // Récupération de la div à afficher/cacher
+            const divCache = document.getElementById('divCache');
+
+            // Si le rayon intersecte le cube, on change la couleur du cube et on affiche la div
+            if (intersects.length > 0) {
+                const cube = intersects[0].object;
+
+                // Toggle entre vert et jaune
+                if (!cubeIsYellow) {
+                    // Changement de la couleur du cube en jaune
+                    cube.material.forEach(material => (material.color.setHex(0xffff00)));
+                    // Affichage de la div
+                    divCache.style.display = 'block';
+                    // Mise à jour de l'état du cube
+                    cubeIsYellow = true;
+                }
+            } else {
+                // Si le clic est en dehors du cube, on remet le cube en vert et on cache la div
+                imageCube.material.forEach(material => (material.color.setHex(0x00ff00)));
+                divCache.style.display = 'none';
+                // Mise à jour de l'état du cube
+                cubeIsYellow = false;
+            }
         }
     }
 
