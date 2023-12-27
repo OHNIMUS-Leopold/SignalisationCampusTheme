@@ -102,6 +102,10 @@ Template Name: Map - Léopold OHNIMUS
     // Ajout du cube à la scène
     scene.add(imageCube);
 
+    // Ombres du cube
+    imageCube.castShadow = true; 
+    imageCube.receiveShadow = true; 
+
 
 
 
@@ -230,6 +234,18 @@ Template Name: Map - Léopold OHNIMUS
 
 
 
+    // Fonction pour changer le matériau d'un objet 3D
+    function changeMaterial(object, newMaterial) {
+        object.traverse((child) => {
+            // Vérifie si l'enfant est un maillage (mesh)
+            if (child.isMesh) {
+                // Applique le nouveau matériau
+                child.material = newMaterial;
+            }
+        });
+    }
+
+
     // On garde le modèle dans une variable globale pour pouvoir l'utiliser dans la fonction animate si besoin
     let object;
 
@@ -239,7 +255,8 @@ Template Name: Map - Léopold OHNIMUS
     // Chargement du modèle
     loader.load(
         //'http://localhost/signalisation/wp-content/uploads/2023/10/scene.gltf',
-        'http://localhost/signalisation/wp-content/uploads/2023/11/map_test1.glb',
+        //'http://localhost/signalisation/wp-content/uploads/2023/11/map_test1.glb',
+        'http://localhost/signalisation/wp-content/uploads/2023/12/Map_sombre.glb',
         // Path du modèle à charger
         //'/shiba/scene.gltf',
         //'/mapcampus/map_test1.glb',
@@ -248,7 +265,21 @@ Template Name: Map - Léopold OHNIMUS
             // Sauvegarde du modèle dans une variable globale
             object = gltf.scene;
             // Ajout du modèle à la scène
-            object.position.set(0, -400, 0);
+            //object.position.set(0, -400, 0);
+
+
+            // Appel de la fonction pour changer le matériau
+            // changeMaterial(object, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+
+
+            // Gérer les ombres recues et projetées
+            object.traverse((child) => {
+                if (child.isMesh) {
+                    object.castShadow = true; 
+                    child.receiveShadow = true;
+                }
+            });
+
             scene.add( object );
         },
         // La fonction à appeler pendant le chargement
@@ -263,7 +294,14 @@ Template Name: Map - Léopold OHNIMUS
     );
 
     // Création du renderer (moteur de rendu)
-    const renderer = new THREE.WebGLRenderer({alpha: true}); // Alpha: true pour avoir un fond transparent
+    const renderer = new THREE.WebGLRenderer(); // Alpha: true pour avoir un fond transparent
+    renderer.setClearColor( 0xCEE6F2, 1 ); // Le fond est bleu ciel
+
+    // Création de la map pour les ombres
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
+
+    // Réglage de la taille du renderer
     renderer.setSize(window.innerWidth, window.innerHeight);
 
     // Ajout du renderer au DOM
@@ -271,8 +309,8 @@ Template Name: Map - Léopold OHNIMUS
 
     // Placement de la caméra
     //camera.position.z = 5;
-    camera.position.z = 100;
-    // camera.position.x = 500;
+    camera.position.z = 60;
+    //camera.position.x = 200;
     // camera.position.y = 200;
 
 
@@ -377,10 +415,10 @@ Template Name: Map - Léopold OHNIMUS
 
 
     // Add lights to the scene, so we can actually see the 3D model
-    const topLight = new THREE.DirectionalLight(0xffffff, 5); // (color, intensity)
-    topLight.position.set(500, 500, 500) // top-left-ish
-    topLight.castShadow = true;
-    scene.add(topLight);
+    // const topLight = new THREE.DirectionalLight(0xcee6f2, 5); // (color, intensity)
+    // topLight.position.set(500, 500, 500) // top-left-ish
+    // topLight.castShadow = true;
+    // scene.add(topLight);
 
     // const ambientLight = new THREE.AmbientLight(0x333333, 1);
     // scene.add(ambientLight);
@@ -396,7 +434,65 @@ Template Name: Map - Léopold OHNIMUS
 
 
 
+    const light1 = new THREE.PointLight( 0xCEE6F2, 750, 200 );
+    light1.position.set( 36, 28, 45 );
+    light1.castShadow = false; 
+    scene.add( light1 );
+
+    const light2 = new THREE.PointLight( 0xCEE6F2, 750, 200 );
+    light2.position.set( -4, 28, 45 );
+    light2.castShadow = false; 
+    scene.add( light2 );
+
+    const light3 = new THREE.PointLight( 0xCEE6F2, 750, 200 );
+    light3.position.set( -47, 28, 45 );
+    light3.castShadow = false; 
+    scene.add( light3 );
+
+    const light4 = new THREE.PointLight( 0xCEE6F2, 750, 200 );
+    light4.position.set( 36, 28, 12 );
+    light4.castShadow = false; 
+    scene.add( light4 );
+
+    const light5 = new THREE.PointLight( 0xCEE6F2, 750, 200 );
+    light5.position.set( -4, 28, 12 );
+    light5.castShadow = false; 
+    scene.add( light5 );
+
+    const light6 = new THREE.PointLight( 0xCEE6F2, 750, 200 );
+    light6.position.set( -47, 28, 12 );
+    light6.castShadow = false; 
+    scene.add( light6 );
+
+    const light7 = new THREE.PointLight( 0xCEE6F2, 750, 200 );
+    light7.position.set( 36, 28, -20 );
+    light7.castShadow = false; 
+    scene.add( light7 );
+
+    const light8 = new THREE.PointLight( 0xCEE6F2, 750, 200 );
+    light8.position.set( -4, 28, -20 );
+    // Paramétrage de la map d'ombres
+    light8.castShadow = true; 
+    light8.shadow.mapSize.width = 1024; 
+    light8.shadow.mapSize.height = 1024;  
+    light8.shadow.camera.near = 0.5;  
+    light8.shadow.camera.far = 500; 
+    scene.add( light8 );
+
+    const light9 = new THREE.PointLight( 0xCEE6F2, 750, 200 );
+    light9.position.set( -47, 28, -20 );
+    light9.castShadow = false; 
+    scene.add( light9 );
+
+    // Lumière ambiante
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+    scene.add(ambientLight);
+
+
+
+
     // --------------------------------------------------------------------------------------------------------------------
+
 
 
 
@@ -427,6 +523,9 @@ Template Name: Map - Léopold OHNIMUS
         divCache.style.display = 'block';
     }
 
+
+
+    
     // --------------------------------------------------------------------------------------------------------------------
 
 

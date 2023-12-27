@@ -129,3 +129,10 @@ font-family: 'Outfit', sans-serif; */
 .contenu {
     display: flex;
 }
+
+
+@media (min-width: 1024px) { 
+    .draggable {
+        display: none;
+    }
+}
