@@ -264,8 +264,9 @@ Template Name: Map - Léopold OHNIMUS
         function ( gltf ) {
             // Sauvegarde du modèle dans une variable globale
             object = gltf.scene;
-            // Ajout du modèle à la scène
-            //object.position.set(0, -400, 0);
+
+            // Reposionnement du modèle
+            object.position.set(5.5, 0, -12.5);
 
 
             // Appel de la fonction pour changer le matériau
@@ -413,64 +414,43 @@ Template Name: Map - Léopold OHNIMUS
 
     // Réglage des lumières sur la scène
 
-
-    // Add lights to the scene, so we can actually see the 3D model
-    // const topLight = new THREE.DirectionalLight(0xcee6f2, 5); // (color, intensity)
-    // topLight.position.set(500, 500, 500) // top-left-ish
-    // topLight.castShadow = true;
-    // scene.add(topLight);
-
-    // const ambientLight = new THREE.AmbientLight(0x333333, 1);
-    // scene.add(ambientLight);
-
-    // const light = new THREE.PointLight(0xffffff)
-    // scene.add(light)
-
-    
-    // Lumière qui éclaire dans toutes les directions
-    // const ambientLight = new THREE.AmbientLight(0xffffff, 2);
-    // scene.add(ambientLight);
-
-
-
-
     const light1 = new THREE.PointLight( 0xCEE6F2, 750, 200 );
-    light1.position.set( 36, 28, 45 );
+    light1.position.set( 41.5, 28, 32.5 );
     light1.castShadow = false; 
     scene.add( light1 );
 
     const light2 = new THREE.PointLight( 0xCEE6F2, 750, 200 );
-    light2.position.set( -4, 28, 45 );
+    light2.position.set( 1.5, 28, 32.5 );
     light2.castShadow = false; 
     scene.add( light2 );
 
     const light3 = new THREE.PointLight( 0xCEE6F2, 750, 200 );
-    light3.position.set( -47, 28, 45 );
+    light3.position.set( -41.5, 28, 32.5 );
     light3.castShadow = false; 
     scene.add( light3 );
 
     const light4 = new THREE.PointLight( 0xCEE6F2, 750, 200 );
-    light4.position.set( 36, 28, 12 );
+    light4.position.set( 41.5, 28, -0.5 );
     light4.castShadow = false; 
     scene.add( light4 );
 
     const light5 = new THREE.PointLight( 0xCEE6F2, 750, 200 );
-    light5.position.set( -4, 28, 12 );
+    light5.position.set( 1.5, 28, -0.5 );
     light5.castShadow = false; 
     scene.add( light5 );
 
     const light6 = new THREE.PointLight( 0xCEE6F2, 750, 200 );
-    light6.position.set( -47, 28, 12 );
+    light6.position.set( -41.5, 28, -0.5 );
     light6.castShadow = false; 
     scene.add( light6 );
 
     const light7 = new THREE.PointLight( 0xCEE6F2, 750, 200 );
-    light7.position.set( 36, 28, -20 );
+    light7.position.set( 41.5, 28, -32.5 );
     light7.castShadow = false; 
     scene.add( light7 );
 
     const light8 = new THREE.PointLight( 0xCEE6F2, 750, 200 );
-    light8.position.set( -4, 28, -20 );
+    light8.position.set( 1.5, 28, -32.5 );
     // Paramétrage de la map d'ombres
     light8.castShadow = true; 
     light8.shadow.mapSize.width = 1024; 
@@ -480,7 +460,7 @@ Template Name: Map - Léopold OHNIMUS
     scene.add( light8 );
 
     const light9 = new THREE.PointLight( 0xCEE6F2, 750, 200 );
-    light9.position.set( -47, 28, -20 );
+    light9.position.set( -41.5, 28, -32.5 );
     light9.castShadow = false; 
     scene.add( light9 );
 
