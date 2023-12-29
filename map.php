@@ -246,6 +246,18 @@ Template Name: Map - Léopold OHNIMUS
     }
 
 
+
+
+    // --------------------------------------------------------------------------------------------------------------------
+
+
+
+
+    // Map 3D
+    // Import de la base et des décors
+
+    // Base
+
     // On garde le modèle dans une variable globale pour pouvoir l'utiliser dans la fonction animate si besoin
     let object;
 
@@ -254,29 +266,25 @@ Template Name: Map - Léopold OHNIMUS
 
     // Chargement du modèle
     loader.load(
-        //'http://localhost/signalisation/wp-content/uploads/2023/10/scene.gltf',
-        //'http://localhost/signalisation/wp-content/uploads/2023/11/map_test1.glb',
-        'http://localhost/signalisation/wp-content/uploads/2023/12/Map_sombre.glb',
         // Path du modèle à charger
-        //'/shiba/scene.gltf',
-        //'/mapcampus/map_test1.glb',
+        'http://localhost/signalisation/wp-content/uploads/2023/12/Base.glb',
+
         // Fonction appelée lorsque le chargement est terminé
         function ( gltf ) {
+
             // Sauvegarde du modèle dans une variable globale
             object = gltf.scene;
 
             // Reposionnement du modèle
             object.position.set(5.5, 0, -12.5);
 
-
             // Appel de la fonction pour changer le matériau
             // changeMaterial(object, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
-
 
             // Gérer les ombres recues et projetées
             object.traverse((child) => {
                 if (child.isMesh) {
-                    object.castShadow = true; 
+                    child.castShadow = true; 
                     child.receiveShadow = true;
                 }
             });
@@ -309,19 +317,46 @@ Template Name: Map - Léopold OHNIMUS
     document.getElementById("container3D").appendChild(renderer.domElement);
 
     // Placement de la caméra
-    //camera.position.z = 5;
     camera.position.z = 60;
-    //camera.position.x = 200;
-    // camera.position.y = 200;
+
+
+    // Décors
+    let decors;
+    const loaderDecors = new GLTFLoader();
+
+    loaderDecors.load(
+        'http://localhost/signalisation/wp-content/uploads/2023/12/Decor.glb',
+
+        function ( gltf ) {
+            decors = gltf.scene;
+            decors.position.set(5.5, 0, -12.5);
+
+            // Appel de la fonction pour changer le matériau
+            // changeMaterial(decors, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+
+            decors.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( decors );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
 
 
 
 
-    // --------------------------------------------------------------------------------------------------------------------
-
-
-
-    // Map 3D
     // Import des éléments de la map
 
     // BU
@@ -1118,7 +1153,7 @@ Template Name: Map - Léopold OHNIMUS
     light6.castShadow = false; 
     scene.add( light6 );
 
-    const light7 = new THREE.PointLight( 0xCEE6F2, 1500, 200 );
+    const light7 = new THREE.PointLight( 0xCEE6F2, 2000, 200 );
     light7.position.set( 41.5, 28, -32.5 );
     // Paramétrage de la map d'ombres
     light7.castShadow = true; 
@@ -1126,6 +1161,7 @@ Template Name: Map - Léopold OHNIMUS
     light7.shadow.mapSize.height = 1024;  
     light7.shadow.camera.near = 0.5;  
     light7.shadow.camera.far = 500; 
+    light7.shadow.bias = -0.001;
     scene.add( light7 );
 
     const light8 = new THREE.PointLight( 0xCEE6F2, 750, 200 );
