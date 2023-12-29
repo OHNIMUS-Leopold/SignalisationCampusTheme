@@ -304,7 +304,7 @@ Template Name: Map - Léopold OHNIMUS
 
     // Création du renderer (moteur de rendu)
     const renderer = new THREE.WebGLRenderer(); // Alpha: true pour avoir un fond transparent
-    renderer.setClearColor( 0xCEE6F2, 1 ); // Le fond est bleu ciel
+    renderer.setClearColor( 0xe4f1f8, 1 ); // Le fond est bleu ciel
 
     // Création de la map pour les ombres
     renderer.shadowMap.enabled = true;
@@ -1033,13 +1033,13 @@ Template Name: Map - Léopold OHNIMUS
 
     // Plan pour la géolocalisation
     // Création du plan en 2D
-    const planeGeometry = new THREE.PlaneGeometry(5, 5);
+    const planeGeometry = new THREE.PlaneGeometry(89.5, 71.5);
 
     // Matériau pour la surface du plan (avec une texture si nécessaire)
-    const materialSurface = new THREE.MeshBasicMaterial({ color: 0x0000ff, transparent: true, opacity: 0.1  }); // Bleu
+    const materialSurface = new THREE.MeshBasicMaterial({ color: 0x0000ff, transparent: true, opacity: 0  }); // Bleu
 
     // Matériau pour les bordures du plan (rouge)
-    const materialBorder = new THREE.LineBasicMaterial({ color: 0xff0000 }); // Rouge
+    const materialBorder = new THREE.LineBasicMaterial({ color: 0xff0000, transparent:true, opacity: 0 }); // Rouge
 
     // Création du mesh
     const surfacePlane = new THREE.Mesh(planeGeometry, materialSurface);
@@ -1069,10 +1069,10 @@ Template Name: Map - Léopold OHNIMUS
     // Actualisation de la position GPS de l'utilisateur dans le plan toutes les 5 secondes
     
     // Coordonnées au 4 angles du plan
-    const topLeftLat = 47.49535333285176;
-    const topLeftLon = 6.8052503840158;
-    const bottomRightLat = 47.49523870889571;
-    const bottomRightLon = 6.805133037367076;
+    const topLeftLat = 47.496941034538736;
+    const topLeftLon = 6.799992067378482;
+    const bottomRightLat = 47.4946525078744;
+    const bottomRightLon = 6.807431480819781;
 
     // Fonction de convertion des coordonnées GPS en coordonnées 3D sur le plan
     function convertGPSTo3D(lat, lon) {
@@ -1082,6 +1082,9 @@ Template Name: Map - Léopold OHNIMUS
         return { x, z };
     }
 
+
+/*
+
     // Création d'un cube représentant l'utilisateur
     const userGeometry = new THREE.BoxGeometry(0.1, 0.1, 0.1);
     const userMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 }); // Rouge
@@ -1090,6 +1093,43 @@ Template Name: Map - Léopold OHNIMUS
 
     // Ajout du cube à la scène
     scene.add(userCube);
+
+*/
+
+    // Modèle pin
+    let userCube;
+    const loaderUserCube = new GLTFLoader();
+
+    loaderUserCube.load(
+        'http://localhost/signalisation/wp-content/uploads/2023/12/user.glb',
+
+        function ( gltf ) {
+            userCube = gltf.scene;
+            userCube.position.set(0, 0, 0);
+
+            // Appel de la fonction pour changer le matériau
+            // changeMaterial(userCube, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+
+            userCube.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( userCube );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
 
     // Fonction pour mettre à jour la position de l'utilisateur
     function updateUserPosition(position) {
@@ -1107,7 +1147,7 @@ Template Name: Map - Léopold OHNIMUS
     // Fonction pour surveiller la position de l'utilisateur toutes les 5 secondes
     function watchUserPosition() {
     navigator.geolocation.getCurrentPosition(updateUserPosition);
-    console.log('Position mise à jour');
+    console.log('Position mise à jour', userCube.position);
     }
 
     // Lancement de la surveillance de la position de l'utilisateur toutes les 5 secondes
@@ -1175,7 +1215,8 @@ Template Name: Map - Léopold OHNIMUS
     scene.add( light9 );
 
     // Lumière ambiante
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+    // const ambientLight = new THREE.AmbientLight(0x000000, 0.00000000000000001);
+    const ambientLight = new THREE.AmbientLight(0xdadada, 1);
     scene.add(ambientLight);
 
 
