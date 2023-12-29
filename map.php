@@ -321,6 +321,680 @@ Template Name: Map - Léopold OHNIMUS
 
 
 
+    // Map 3D
+    // Import des éléments de la map
+
+    // BU
+    let bu;
+    const loaderBu = new GLTFLoader();
+
+    loaderBu.load(
+        'http://localhost/signalisation/wp-content/uploads/2023/12/BU.glb',
+
+        function ( gltf ) {
+            bu = gltf.scene;
+            bu.position.set(5.5, 0, -12.5);
+
+            // Appel de la fonction pour changer le matériau
+            // changeMaterial(bu, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+
+            bu.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( bu );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
+
+    // Centre de recherches
+    let centre;
+    const loaderCentre = new GLTFLoader();
+
+    loaderCentre.load(
+        'http://localhost/signalisation/wp-content/uploads/2023/12/Centre_Recherche.glb',
+
+        function ( gltf ) {
+            centre = gltf.scene;
+            centre.position.set(5.5, 0, -12.5);
+
+            // Appel de la fonction pour changer le matériau
+            // changeMaterial(centre, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+
+            centre.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( centre );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
+
+    // CNAM
+    let cnam;
+    const loaderCnam = new GLTFLoader();
+
+    loaderCnam.load(
+        'http://localhost/signalisation/wp-content/uploads/2023/12/cnam.glb',
+
+        function ( gltf ) {
+            cnam = gltf.scene;
+            cnam.position.set(5.5, 0, -12.5);
+
+            // Appel de la fonction pour changer le matériau
+            // changeMaterial(cnam, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+
+            cnam.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( cnam );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
+
+    // DEJEPS
+    let dejeps;
+    const loaderDejeps = new GLTFLoader();
+
+    loaderDejeps.load(
+        'http://localhost/signalisation/wp-content/uploads/2023/12/DEJEPS.glb',
+
+        function ( gltf ) {
+            dejeps = gltf.scene;
+            dejeps.position.set(5.5, 0, -12.5);
+
+            // Appel de la fonction pour changer le matériau
+            // changeMaterial(dejeps, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+
+            dejeps.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( dejeps );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
+
+    // GACO
+    let gaco;
+    const loaderGaco = new GLTFLoader();
+
+    loaderGaco.load(
+        'http://localhost/signalisation/wp-content/uploads/2023/12/GACO.glb',
+
+        function ( gltf ) {
+            gaco = gltf.scene;
+            gaco.position.set(5.5, 0, -12.5);
+
+            // Appel de la fonction pour changer le matériau
+            // changeMaterial(gaco, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+
+            gaco.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( gaco );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
+
+    // Grand Amphi
+    let gamphi;
+    const loaderGamphi = new GLTFLoader();
+
+    loaderGamphi.load(
+        'http://localhost/signalisation/wp-content/uploads/2023/12/Grand_Amphi.glb',
+
+        function ( gltf ) {
+            gamphi = gltf.scene;
+            gamphi.position.set(5.5, 0, -12.5);
+
+            // Appel de la fonction pour changer le matériau
+            // changeMaterial(gamphi, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+
+            gamphi.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( gamphi );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
+
+    // IFMS
+    let ifms;
+    const loaderIfms = new GLTFLoader();
+
+    loaderIfms.load(
+        'http://localhost/signalisation/wp-content/uploads/2023/12/ifms.glb',
+
+        function ( gltf ) {
+            ifms = gltf.scene;
+            ifms.position.set(5.5, 0, -12.5);
+
+            // Appel de la fonction pour changer le matériau
+            // changeMaterial(ifms, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+
+            ifms.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( ifms );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
+
+    // LEA
+    let lea;
+    const loaderLea = new GLTFLoader();
+
+    loaderLea.load(
+        'http://localhost/signalisation/wp-content/uploads/2023/12/LEA.glb',
+
+        function ( gltf ) {
+            lea = gltf.scene;
+            lea.position.set(5.5, 0, -12.5);
+
+            // Appel de la fonction pour changer le matériau
+            // changeMaterial(lea, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+
+            lea.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( lea );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
+
+    // MINAMAS
+    let minamas;
+    const loaderMinamas = new GLTFLoader();
+
+    loaderMinamas.load(
+        'http://localhost/signalisation/wp-content/uploads/2023/12/MINAMAS.glb',
+
+        function ( gltf ) {
+            minamas = gltf.scene;
+            minamas.position.set(5.5, 0, -12.5);
+
+            // Appel de la fonction pour changer le matériau
+            // changeMaterial(minamas, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+
+            minamas.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( minamas );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
+
+    // MMI
+    let mmi;
+    const loaderMmi = new GLTFLoader();
+
+    loaderMmi.load(
+        'http://localhost/signalisation/wp-content/uploads/2023/12/MMI.glb',
+
+        function ( gltf ) {
+            mmi = gltf.scene;
+            mmi.position.set(5.5, 0, -12.5);
+
+            // Appel de la fonction pour changer le matériau
+            // changeMaterial(mmi, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+
+            mmi.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( mmi );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
+
+    // MP
+    let mp;
+    const loaderMp = new GLTFLoader();
+
+    loaderMp.load(
+        'http://localhost/signalisation/wp-content/uploads/2023/12/MP.glb',
+
+        function ( gltf ) {
+            mp = gltf.scene;
+            mp.position.set(5.5, 0, -12.5);
+
+            // Appel de la fonction pour changer le matériau
+            // changeMaterial(mp, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+
+            mp.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( mp );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
+
+    // Numerica (entreprise)
+    let numerica;
+    const loaderNumerica = new GLTFLoader();
+
+    loaderNumerica.load(
+        'http://localhost/signalisation/wp-content/uploads/2023/12/Numerica.glb',
+
+        function ( gltf ) {
+            numerica = gltf.scene;
+            numerica.position.set(5.5, 0, -12.5);
+
+            // Appel de la fonction pour changer le matériau
+            // changeMaterial(numerica, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+
+            numerica.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( numerica );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
+
+    // Numerica (pouponnière)
+    let numerica2;
+    const loaderNumerica2 = new GLTFLoader();
+
+    loaderNumerica2.load(
+        'http://localhost/signalisation/wp-content/uploads/2023/12/Numerica2.glb',
+
+        function ( gltf ) {
+            numerica2 = gltf.scene;
+            numerica2.position.set(5.5, 0, -12.5);
+
+            // Appel de la fonction pour changer le matériau
+            // changeMaterial(numerica2, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+
+            numerica2.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( numerica2 );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
+
+    // R&T
+    let rt;
+    const loaderRt = new GLTFLoader();
+
+    loaderRt.load(
+        'http://localhost/signalisation/wp-content/uploads/2023/12/RT.glb',
+
+        function ( gltf ) {
+            rt = gltf.scene;
+            rt.position.set(5.5, 0, -12.5);
+
+            // Appel de la fonction pour changer le matériau
+            // changeMaterial(rt, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+
+            rt.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( rt );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
+
+    // RU
+    let ru;
+    const loaderRu = new GLTFLoader();
+
+    loaderRu.load(
+        'http://localhost/signalisation/wp-content/uploads/2023/12/RU.glb',
+
+        function ( gltf ) {
+            ru = gltf.scene;
+            ru.position.set(5.5, 0, -12.5);
+
+            // Appel de la fonction pour changer le matériau
+            // changeMaterial(ru, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+
+            ru.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( ru );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
+
+    // STGI
+    let stgi;
+    const loaderStgi = new GLTFLoader();
+
+    loaderStgi.load(
+        'http://localhost/signalisation/wp-content/uploads/2023/12/STGI.glb',
+
+        function ( gltf ) {
+            stgi = gltf.scene;
+            stgi.position.set(5.5, 0, -12.5);
+
+            // Appel de la fonction pour changer le matériau
+            // changeMaterial(stgi, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+
+            stgi.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( stgi );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
+
+    // SVE
+    let sve;
+    const loaderSve = new GLTFLoader();
+
+    loaderSve.load(
+        'http://localhost/signalisation/wp-content/uploads/2023/12/SVE.glb',
+
+        function ( gltf ) {
+            sve = gltf.scene;
+            sve.position.set(5.5, 0, -12.5);
+
+            // Appel de la fonction pour changer le matériau
+            // changeMaterial(sve, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+
+            sve.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( sve );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
+
+    // SVE Amphi
+    let svea;
+    const loaderSvea = new GLTFLoader();
+
+    loaderSvea.load(
+        'http://localhost/signalisation/wp-content/uploads/2023/12/SVE_Amphi.glb',
+
+        function ( gltf ) {
+            svea = gltf.scene;
+            svea.position.set(5.5, 0, -12.5);
+
+            // Appel de la fonction pour changer le matériau
+            // changeMaterial(svea, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+
+            svea.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( svea );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
+
+    // UTBM
+    let utbm;
+    const loaderUtbm = new GLTFLoader();
+
+    loaderUtbm.load(
+        'http://localhost/signalisation/wp-content/uploads/2023/12/UTBM.glb',
+
+        function ( gltf ) {
+            utbm = gltf.scene;
+            utbm.position.set(5.5, 0, -12.5);
+
+            // Appel de la fonction pour changer le matériau
+            // changeMaterial(utbm, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+
+            utbm.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( utbm );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
+
+
+
+    // --------------------------------------------------------------------------------------------------------------------
+
+
+
 
     // Plan pour la géolocalisation
     // Création du plan en 2D
@@ -444,19 +1118,19 @@ Template Name: Map - Léopold OHNIMUS
     light6.castShadow = false; 
     scene.add( light6 );
 
-    const light7 = new THREE.PointLight( 0xCEE6F2, 750, 200 );
+    const light7 = new THREE.PointLight( 0xCEE6F2, 1500, 200 );
     light7.position.set( 41.5, 28, -32.5 );
-    light7.castShadow = false; 
+    // Paramétrage de la map d'ombres
+    light7.castShadow = true; 
+    light7.shadow.mapSize.width = 1024; 
+    light7.shadow.mapSize.height = 1024;  
+    light7.shadow.camera.near = 0.5;  
+    light7.shadow.camera.far = 500; 
     scene.add( light7 );
 
     const light8 = new THREE.PointLight( 0xCEE6F2, 750, 200 );
     light8.position.set( 1.5, 28, -32.5 );
-    // Paramétrage de la map d'ombres
-    light8.castShadow = true; 
-    light8.shadow.mapSize.width = 1024; 
-    light8.shadow.mapSize.height = 1024;  
-    light8.shadow.camera.near = 0.5;  
-    light8.shadow.camera.far = 500; 
+    light8.castShadow = false; 
     scene.add( light8 );
 
     const light9 = new THREE.PointLight( 0xCEE6F2, 750, 200 );
