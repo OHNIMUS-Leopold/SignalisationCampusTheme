@@ -317,7 +317,9 @@ Template Name: Map - Léopold OHNIMUS
     document.getElementById("container3D").appendChild(renderer.domElement);
 
     // Placement de la caméra
-    camera.position.z = 60;
+    camera.position.z = -10;
+    camera.position.y = 10;
+    camera.position.x = -20;
 
 
     // Décors
@@ -1101,11 +1103,11 @@ Template Name: Map - Léopold OHNIMUS
     const loaderUserCube = new GLTFLoader();
 
     loaderUserCube.load(
-        'http://localhost/signalisation/wp-content/uploads/2023/12/user.glb',
+        'http://localhost/signalisation/wp-content/uploads/2023/12/userpin.glb',
 
         function ( gltf ) {
             userCube = gltf.scene;
-            userCube.position.set(0, 0, 0);
+            userCube.position.set(0, -0.5, 0);
 
             // Appel de la fonction pour changer le matériau
             // changeMaterial(userCube, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
@@ -1141,7 +1143,7 @@ Template Name: Map - Léopold OHNIMUS
     const userCoords = convertGPSTo3D(userLat, userLon);
 
     // Mettez à jour la position du cube en fonction des nouvelles coordonnées
-    userCube.position.set(userCoords.x, 0, userCoords.z);                           // (0.0,05.0)
+    userCube.position.set(userCoords.x, -0.5, userCoords.z);                           // (0.0,05.0)
     }
 
     // Fonction pour surveiller la position de l'utilisateur toutes les 5 secondes
