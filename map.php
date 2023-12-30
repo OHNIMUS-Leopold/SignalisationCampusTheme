@@ -67,58 +67,13 @@ Template Name: Map - Léopold OHNIMUS
 
 
 
-    // Images mise en volume dans un cube
-
-    // Création de la géométrie du cube
-    const cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
-    //const cubeGeometry = new THREE.BoxGeometry(2, 2, 0.1);
-    // Création des textures pour chaque face du cube
-    const materialImg = [
-      new THREE.MeshPhongMaterial({ color: 0x00ff00 }),
-      new THREE.MeshPhongMaterial({ color: 0x00ff00 }),
-      new THREE.MeshPhongMaterial({ color: 0x00ff00 }),
-      new THREE.MeshPhongMaterial({ color: 0x00ff00 }),
-      new THREE.MeshPhongMaterial({ color: 0x00ff00 }),
-      new THREE.MeshPhongMaterial({ color: 0x00ff00 }),
-      //new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load('http://localhost/signalisation/wp-content/uploads/2023/10/bsness.jpg') }),
-      //new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load('http://localhost/signalisation/wp-content/uploads/2023/10/eh.jpg') }),
-    ];
-
-    // Vérification de l'ancre dans l'URL et changement de la couleur du cube en fonction
-    if (window.location.hash === '#yellow') {
-        // Changement de la couleur du cube
-        materialImg[0] = new THREE.MeshPhongMaterial({ color: 0xffff00 }); // Yellow
-        materialImg[1] = new THREE.MeshPhongMaterial({ color: 0xffff00 }); // Yellow
-        materialImg[2] = new THREE.MeshPhongMaterial({ color: 0xffff00 }); // Yellow
-        materialImg[3] = new THREE.MeshPhongMaterial({ color: 0xffff00 }); // Yellow
-        materialImg[4] = new THREE.MeshPhongMaterial({ color: 0xffff00 }); // Yellow
-        materialImg[5] = new THREE.MeshPhongMaterial({ color: 0xffff00 }); // Yellow
-    }
-
-    // Création du cube avec la géométrie et les textures
-    const imageCube = new THREE.Mesh(cubeGeometry, materialImg);
-    // Positionnage du cube dans la scène
-    imageCube.position.set(1, 1, 1);
-    // Ajout du cube à la scène
-    scene.add(imageCube);
-
-    // Ombres du cube
-    imageCube.castShadow = true; 
-    imageCube.receiveShadow = true; 
-
-
-
-
-    // --------------------------------------------------------------------------------------------------------------------
-
-
-
-
     // Ajout d'un gestionnaire d'événements pour le clic de la souris
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2();
-    window.addEventListener('click', onClick);
-    
+
+    // Ajouter un seul écouteur d'événements click sur le document
+    document.addEventListener('click', handleBatimentInteraction);
+
     // Fonction pour mettre à jour la position de la souris
     function onMouseMove(event) {
         // Mise à jour des coordonnées de la souris
@@ -128,103 +83,6 @@ Template Name: Map - Léopold OHNIMUS
     
     // Ajout d'un gestionnaire d'événements pour le mouvement de la souris
     window.addEventListener('mousemove', onMouseMove);
-
-
-
-
-    // --------------------------------------------------------------------------------------------------------------------
-
-
-
-/*
-    // Fonction pour gérer le clic de la souris et afficher/cacher les éléments
-    function onClick(event) {
-        // Calcul de la position de la souris dans le viewport
-        const rect = renderer.domElement.getBoundingClientRect();
-        const x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-        const y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-
-        // Mise à jour des coordonnées de la souris
-        mouse.x = x;
-        mouse.y = y;
-
-        // Mise à jour du rayon avec la position de la souris
-        raycaster.setFromCamera(mouse, camera);
-
-        // On vérifie si le rayon intersecte le cube
-        const intersects = raycaster.intersectObject(imageCube);
-
-        // Si le rayon intersecte le cube, on affiche/cache le div
-        if (intersects.length > 0) {
-            // Récupération de la div à afficher/cacher
-            const divCache = document.getElementById('divCache');
-            // Si le div est caché, on l'affiche, et vice-versa
-            if (divCache.style.display === 'none') {
-                divCache.style.display = 'block';
-            } else {
-                divCache.style.display = 'none';
-            }
-        }
-    }
-
-*/
-
-
-    // Variable pour suivre l'état du cube
-    let cubeIsYellow = false;
-
-    // Fonction pour gérer le clic de la souris et afficher/cacher les éléments
-    function onClick(event) {
-        // Récupération de l'ID de l'élément cliqué et de ses ancêtres
-        const clickedElementId = event.target.id;
-        const draggableDivAncestorId = event.target.closest('#draggableDiv')?.id;
-
-        // Si l'élément cliqué ou l'un de ses ancêtres est dans la div draggableDiv, ne rien faire
-        if (clickedElementId === 'draggableDiv' || draggableDivAncestorId === 'draggableDiv') {
-            return;
-
-        // Sinon, on applique le comportement normal
-        } else {
-            // Calcul de la position de la souris dans le viewport
-            const rect = renderer.domElement.getBoundingClientRect();
-            const x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-            const y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-
-            // Mise à jour des coordonnées de la souris
-            mouse.x = x;
-            mouse.y = y;
-
-            // Mise à jour du rayon avec la position de la souris
-            raycaster.setFromCamera(mouse, camera);
-
-            // On vérifie si le rayon intersecte le cube
-            const intersects = raycaster.intersectObject(imageCube);
-
-            // Récupération de la div à afficher/cacher
-            const divCache = document.getElementById('divCache');
-
-            // Si le rayon intersecte le cube, on change la couleur du cube et on affiche la div
-            if (intersects.length > 0) {
-                const cube = intersects[0].object;
-
-                // Toggle entre vert et jaune
-                if (!cubeIsYellow) {
-                    // Changement de la couleur du cube en jaune
-                    cube.material.forEach(material => (material.color.setHex(0xffff00)));
-                    // Affichage de la div
-                    divCache.style.display = 'block';
-                    // Mise à jour de l'état du cube
-                    cubeIsYellow = true;
-                }
-            } else {
-                // Si le clic est en dehors du cube, on remet le cube en vert et on cache la div
-                imageCube.material.forEach(material => (material.color.setHex(0x00ff00)));
-                divCache.style.display = 'none';
-                // Mise à jour de l'état du cube
-                cubeIsYellow = false;
-            }
-        }
-    }
 
 
 
@@ -361,8 +219,13 @@ Template Name: Map - Léopold OHNIMUS
 
     // Import des éléments de la map
 
+    // Création d'un tableau pour stocker les bâtiments et leurs matériaux
+    let batiments = [];
+
+
     // BU
     let bu;
+    let buMaterial;
     const loaderBu = new GLTFLoader();
 
     loaderBu.load(
@@ -372,8 +235,20 @@ Template Name: Map - Léopold OHNIMUS
             bu = gltf.scene;
             bu.position.set(5.5, 0, -12.5);
 
-            // Appel de la fonction pour changer le matériau
-            // changeMaterial(bu, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+            // Sauvegarde du matériau de la bu dans une variable globale
+            buMaterial = bu.children[0].material.clone();
+
+            // Appel de la fonction pour changer le matériau si la bu est sélectionnée
+            if (window.location.hash === '#bu-select') {
+                // Changement de la couleur du batiment
+                changeMaterial(bu, new THREE.MeshPhongMaterial({ color: 0xff6161 }));
+                // Affichage de la div
+                const divCache = document.getElementById('divCache');
+                divCache.style.display = 'block';
+            }
+
+            // Ajout de la bu dans le tableau des bâtiments
+            batiments.push({ isSelected: false, batiment: bu, material: buMaterial });
 
             bu.traverse((child) => {
                 if (child.isMesh) {
@@ -398,6 +273,7 @@ Template Name: Map - Léopold OHNIMUS
 
     // Centre de recherches
     let centre;
+    let centreMaterial;
     const loaderCentre = new GLTFLoader();
 
     loaderCentre.load(
@@ -407,8 +283,15 @@ Template Name: Map - Léopold OHNIMUS
             centre = gltf.scene;
             centre.position.set(5.5, 0, -12.5);
 
-            // Appel de la fonction pour changer le matériau
-            // changeMaterial(centre, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+            centreMaterial = centre.children[0].material.clone();
+
+            if (window.location.hash === '#centre-select') {
+                changeMaterial(centre, new THREE.MeshPhongMaterial({ color: 0xff6161 }));
+                const divCache = document.getElementById('divCache');
+                divCache.style.display = 'block';
+            }
+
+            batiments.push({ isSelected: false, batiment: centre, material: centreMaterial });
 
             centre.traverse((child) => {
                 if (child.isMesh) {
@@ -1085,19 +968,6 @@ Template Name: Map - Léopold OHNIMUS
     }
 
 
-/*
-
-    // Création d'un cube représentant l'utilisateur
-    const userGeometry = new THREE.BoxGeometry(0.1, 0.1, 0.1);
-    const userMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 }); // Rouge
-    const userCube = new THREE.Mesh(userGeometry, userMaterial);
-    userCube.position.set(0, 0, 0); // Initialise la position du cube à l'origine 0 0 0        // (0.0,05.0)
-
-    // Ajout du cube à la scène
-    scene.add(userCube);
-
-*/
-
     // Modèle pin
     let userCube;
     const loaderUserCube = new GLTFLoader();
@@ -1247,18 +1117,6 @@ Template Name: Map - Léopold OHNIMUS
 
 
 
-    // Vérification de la couleur du cube au chargement de la page
-    const initialCubeColor = imageCube.material[0].color.getHex();
-
-    // Si le cube est jaune, on affiche la div
-    if (initialCubeColor === 0xffff00) {
-        const divCache = document.getElementById('divCache');
-        divCache.style.display = 'block';
-    }
-
-
-
-    
     // --------------------------------------------------------------------------------------------------------------------
 
 
@@ -1385,5 +1243,64 @@ Template Name: Map - Léopold OHNIMUS
 
 
 
+
+    // --------------------------------------------------------------------------------------------------------------------
+
+
+
+
+    function handleBatimentInteraction(event) {
+        
+        event.preventDefault();
+
+        // Récupération de l'ID de l'élément cliqué et de ses ancêtres
+        const clickedElementId = event.target.id;
+        const draggableDivAncestorId = event.target.closest('#draggableDiv')?.id;
+
+        // Si l'élément cliqué ou l'un de ses ancêtres est dans la div draggableDiv, ne rien faire
+        if (clickedElementId === 'draggableDiv' || draggableDivAncestorId === 'draggableDiv') {
+            return;
+
+        } else {
+
+            // Calcul de la position de la souris dans le viewport
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+            // Mise à jour du rayon avec la position de la souris
+            raycaster.setFromCamera(mouse, camera);
+
+            // Récupération de la div à afficher/cacher
+            const divCache = document.getElementById('divCache');
+
+            let selectedBatiment = null;
+
+            // Parcourt de tous les bâtiments
+            batiments.forEach(batiment => {
+                // Vérification si le rayon intersecte le bâtiment
+                let intersects = raycaster.intersectObject(batiment.batiment, true);
+
+                // Si le rayon intersecte le bâtiment, le sélectionner
+                if (intersects.length > 0) {
+                    selectedBatiment = batiment;
+
+                // Sinon, désélectionner le bâtiment
+                } else {
+                    // Désélectionner le bâtiment si ce n'est pas celui qui a été cliqué
+                    batiment.batiment.children[0].material = batiment.material;
+                    batiment.isSelected = false;
+                    divCache.style.display = 'none';
+                }
+            });
+
+            // Si un bâtiment a été cliqué, le sélectionner
+            if (selectedBatiment) {
+                selectedBatiment.batiment.children[0].material = new THREE.MeshPhongMaterial({ color: 0xff6161 });
+                selectedBatiment.isSelected = true;
+                // Afficher la div
+                divCache.style.display = 'block';
+            }
+        }   
+    }
 
 </script>
