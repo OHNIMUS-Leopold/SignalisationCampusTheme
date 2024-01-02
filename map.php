@@ -30,6 +30,7 @@ Template Name: Map - Léopold OHNIMUS
     <span id="draggableButton" class="spanBtn"></span>
     <div class="contenu">
         <div  id="divCache"  style="display: none;">MONTRE LA DIV</div>
+        <div  id="divCacheMP"  style="display: none;">MONTRE LA DIV MP</div>
     </div>  
 </div>
 
@@ -73,6 +74,7 @@ Template Name: Map - Léopold OHNIMUS
 
     // Ajouter un seul écouteur d'événements click sur le document
     document.addEventListener('click', handleBatimentInteraction);
+    document.addEventListener('click', handleBatimentMPInteraction);
 
     // Fonction pour mettre à jour la position de la souris
     function onMouseMove(event) {
@@ -241,7 +243,7 @@ Template Name: Map - Léopold OHNIMUS
             // Appel de la fonction pour changer le matériau si la bu est sélectionnée
             if (window.location.hash === '#bu-select') {
                 // Changement de la couleur du batiment
-                changeMaterial(bu, new THREE.MeshPhongMaterial({ color: 0xff6161 }));
+                changeMaterial(bu, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 // Affichage de la div
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
@@ -286,7 +288,7 @@ Template Name: Map - Léopold OHNIMUS
             centreMaterial = centre.children[0].material.clone();
 
             if (window.location.hash === '#centre-select') {
-                changeMaterial(centre, new THREE.MeshPhongMaterial({ color: 0xff6161 }));
+                changeMaterial(centre, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
             }
@@ -316,6 +318,7 @@ Template Name: Map - Léopold OHNIMUS
 
     // CNAM
     let cnam;
+    let cnamMaterial;
     const loaderCnam = new GLTFLoader();
 
     loaderCnam.load(
@@ -325,8 +328,15 @@ Template Name: Map - Léopold OHNIMUS
             cnam = gltf.scene;
             cnam.position.set(5.5, 0, -12.5);
 
-            // Appel de la fonction pour changer le matériau
-            // changeMaterial(cnam, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+            cnamMaterial = cnam.children[0].material.clone();
+
+            if (window.location.hash === '#cnam-select') {
+                changeMaterial(cnam, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
+                const divCache = document.getElementById('divCache');
+                divCache.style.display = 'block';
+            }
+
+            batiments.push({ isSelected: false, batiment: cnam, material: cnamMaterial });
 
             cnam.traverse((child) => {
                 if (child.isMesh) {
@@ -351,6 +361,7 @@ Template Name: Map - Léopold OHNIMUS
 
     // DEJEPS
     let dejeps;
+    let dejepsMaterial;
     const loaderDejeps = new GLTFLoader();
 
     loaderDejeps.load(
@@ -360,8 +371,15 @@ Template Name: Map - Léopold OHNIMUS
             dejeps = gltf.scene;
             dejeps.position.set(5.5, 0, -12.5);
 
-            // Appel de la fonction pour changer le matériau
-            // changeMaterial(dejeps, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+            dejepsMaterial = dejeps.children[0].material.clone();
+
+            if (window.location.hash === '#dejeps-select') {
+                changeMaterial(dejeps, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
+                const divCache = document.getElementById('divCache');
+                divCache.style.display = 'block';
+            }
+
+            batiments.push({ isSelected: false, batiment: dejeps, material: dejepsMaterial });
 
             dejeps.traverse((child) => {
                 if (child.isMesh) {
@@ -386,6 +404,7 @@ Template Name: Map - Léopold OHNIMUS
 
     // GACO
     let gaco;
+    let gacoMaterial;
     const loaderGaco = new GLTFLoader();
 
     loaderGaco.load(
@@ -395,8 +414,15 @@ Template Name: Map - Léopold OHNIMUS
             gaco = gltf.scene;
             gaco.position.set(5.5, 0, -12.5);
 
-            // Appel de la fonction pour changer le matériau
-            // changeMaterial(gaco, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+            gacoMaterial = gaco.children[0].material.clone();
+
+            if (window.location.hash === '#gaco-select') {
+                changeMaterial(gaco, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
+                const divCache = document.getElementById('divCache');
+                divCache.style.display = 'block';
+            }
+
+            batiments.push({ isSelected: false, batiment: gaco, material: gacoMaterial });
 
             gaco.traverse((child) => {
                 if (child.isMesh) {
@@ -421,6 +447,7 @@ Template Name: Map - Léopold OHNIMUS
 
     // Grand Amphi
     let gamphi;
+    let gamphiMaterial;
     const loaderGamphi = new GLTFLoader();
 
     loaderGamphi.load(
@@ -430,8 +457,15 @@ Template Name: Map - Léopold OHNIMUS
             gamphi = gltf.scene;
             gamphi.position.set(5.5, 0, -12.5);
 
-            // Appel de la fonction pour changer le matériau
-            // changeMaterial(gamphi, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+            gamphiMaterial = gamphi.children[0].material.clone();
+
+            if (window.location.hash === '#gamphi-select') {
+                changeMaterial(gamphi, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
+                const divCache = document.getElementById('divCache');
+                divCache.style.display = 'block';
+            }
+
+            batiments.push({ isSelected: false, batiment: gamphi, material: gamphiMaterial });
 
             gamphi.traverse((child) => {
                 if (child.isMesh) {
@@ -456,6 +490,7 @@ Template Name: Map - Léopold OHNIMUS
 
     // IFMS
     let ifms;
+    let ifmsMaterial;
     const loaderIfms = new GLTFLoader();
 
     loaderIfms.load(
@@ -465,8 +500,15 @@ Template Name: Map - Léopold OHNIMUS
             ifms = gltf.scene;
             ifms.position.set(5.5, 0, -12.5);
 
-            // Appel de la fonction pour changer le matériau
-            // changeMaterial(ifms, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+            ifmsMaterial = ifms.children[0].material.clone();
+
+            if (window.location.hash === '#ifms-select') {
+                changeMaterial(ifms, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
+                const divCache = document.getElementById('divCache');
+                divCache.style.display = 'block';
+            }
+
+            batiments.push({ isSelected: false, batiment: ifms, material: ifmsMaterial });
 
             ifms.traverse((child) => {
                 if (child.isMesh) {
@@ -491,6 +533,7 @@ Template Name: Map - Léopold OHNIMUS
 
     // LEA
     let lea;
+    let leaMaterial;
     const loaderLea = new GLTFLoader();
 
     loaderLea.load(
@@ -500,8 +543,15 @@ Template Name: Map - Léopold OHNIMUS
             lea = gltf.scene;
             lea.position.set(5.5, 0, -12.5);
 
-            // Appel de la fonction pour changer le matériau
-            // changeMaterial(lea, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+            leaMaterial = lea.children[0].material.clone();
+
+            if (window.location.hash === '#lea-select') {
+                changeMaterial(lea, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
+                const divCache = document.getElementById('divCache');
+                divCache.style.display = 'block';
+            }
+
+            batiments.push({ isSelected: false, batiment: lea, material: leaMaterial });
 
             lea.traverse((child) => {
                 if (child.isMesh) {
@@ -526,6 +576,7 @@ Template Name: Map - Léopold OHNIMUS
 
     // MINAMAS
     let minamas;
+    let minamasMaterial;
     const loaderMinamas = new GLTFLoader();
 
     loaderMinamas.load(
@@ -535,8 +586,15 @@ Template Name: Map - Léopold OHNIMUS
             minamas = gltf.scene;
             minamas.position.set(5.5, 0, -12.5);
 
-            // Appel de la fonction pour changer le matériau
-            // changeMaterial(minamas, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+            minamasMaterial = minamas.children[0].material.clone();
+
+            if (window.location.hash === '#minamas-select') {
+                changeMaterial(minamas, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
+                const divCache = document.getElementById('divCache');
+                divCache.style.display = 'block';
+            }
+
+            batiments.push({ isSelected: false, batiment: minamas, material: minamasMaterial });
 
             minamas.traverse((child) => {
                 if (child.isMesh) {
@@ -561,6 +619,7 @@ Template Name: Map - Léopold OHNIMUS
 
     // MMI
     let mmi;
+    let mmiMaterial;
     const loaderMmi = new GLTFLoader();
 
     loaderMmi.load(
@@ -570,8 +629,15 @@ Template Name: Map - Léopold OHNIMUS
             mmi = gltf.scene;
             mmi.position.set(5.5, 0, -12.5);
 
-            // Appel de la fonction pour changer le matériau
-            // changeMaterial(mmi, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+            mmiMaterial = mmi.children[0].material.clone();
+
+            if (window.location.hash === '#mmi-select') {
+                changeMaterial(mmi, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
+                const divCache = document.getElementById('divCache');
+                divCache.style.display = 'block';
+            }
+
+            batiments.push({ isSelected: false, batiment: mmi, material: mmiMaterial });
 
             mmi.traverse((child) => {
                 if (child.isMesh) {
@@ -596,6 +662,8 @@ Template Name: Map - Léopold OHNIMUS
 
     // MP
     let mp;
+    let mpMaterial1;
+    let mpMaterial2;
     const loaderMp = new GLTFLoader();
 
     loaderMp.load(
@@ -605,8 +673,15 @@ Template Name: Map - Léopold OHNIMUS
             mp = gltf.scene;
             mp.position.set(5.5, 0, -12.5);
 
-            // Appel de la fonction pour changer le matériau
-            // changeMaterial(mp, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+            mpMaterial1 = mp.children[0].children[0].material.clone();
+            mpMaterial2 = mp.children[0].children[1].material.clone();
+
+            if (window.location.hash === '#mp-select') {
+                mp.children[0].children[0].material = new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true });
+                mp.children[0].children[1].material = new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true });
+                const divCacheMP = document.getElementById('divCacheMP');
+                divCacheMP.style.display = 'block';
+            }
 
             mp.traverse((child) => {
                 if (child.isMesh) {
@@ -631,6 +706,7 @@ Template Name: Map - Léopold OHNIMUS
 
     // Numerica (entreprise)
     let numerica;
+    let numericaMaterial;
     const loaderNumerica = new GLTFLoader();
 
     loaderNumerica.load(
@@ -640,8 +716,15 @@ Template Name: Map - Léopold OHNIMUS
             numerica = gltf.scene;
             numerica.position.set(5.5, 0, -12.5);
 
-            // Appel de la fonction pour changer le matériau
-            // changeMaterial(numerica, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+            numericaMaterial = numerica.children[0].material.clone();
+
+            if (window.location.hash === '#numerica-select') {
+                changeMaterial(numerica, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
+                const divCache = document.getElementById('divCache');
+                divCache.style.display = 'block';
+            }
+
+            batiments.push({ isSelected: false, batiment: numerica, material: numericaMaterial });
 
             numerica.traverse((child) => {
                 if (child.isMesh) {
@@ -666,6 +749,7 @@ Template Name: Map - Léopold OHNIMUS
 
     // Numerica (pouponnière)
     let numerica2;
+    let numerica2Material;
     const loaderNumerica2 = new GLTFLoader();
 
     loaderNumerica2.load(
@@ -675,8 +759,15 @@ Template Name: Map - Léopold OHNIMUS
             numerica2 = gltf.scene;
             numerica2.position.set(5.5, 0, -12.5);
 
-            // Appel de la fonction pour changer le matériau
-            // changeMaterial(numerica2, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+            numerica2Material = numerica2.children[0].material.clone();
+
+            if (window.location.hash === '#numerica2-select') {
+                changeMaterial(numerica2, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
+                const divCache = document.getElementById('divCache');
+                divCache.style.display = 'block';
+            }
+
+            batiments.push({ isSelected: false, batiment: numerica2, material: numerica2Material });
 
             numerica2.traverse((child) => {
                 if (child.isMesh) {
@@ -701,6 +792,7 @@ Template Name: Map - Léopold OHNIMUS
 
     // R&T
     let rt;
+    let rtMaterial;
     const loaderRt = new GLTFLoader();
 
     loaderRt.load(
@@ -710,8 +802,15 @@ Template Name: Map - Léopold OHNIMUS
             rt = gltf.scene;
             rt.position.set(5.5, 0, -12.5);
 
-            // Appel de la fonction pour changer le matériau
-            // changeMaterial(rt, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+            rtMaterial = rt.children[0].material.clone();
+
+            if (window.location.hash === '#rt-select') {
+                changeMaterial(rt, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
+                const divCache = document.getElementById('divCache');
+                divCache.style.display = 'block';
+            }
+
+            batiments.push({ isSelected: false, batiment: rt, material: rtMaterial });
 
             rt.traverse((child) => {
                 if (child.isMesh) {
@@ -736,6 +835,7 @@ Template Name: Map - Léopold OHNIMUS
 
     // RU
     let ru;
+    let ruMaterial;
     const loaderRu = new GLTFLoader();
 
     loaderRu.load(
@@ -745,8 +845,15 @@ Template Name: Map - Léopold OHNIMUS
             ru = gltf.scene;
             ru.position.set(5.5, 0, -12.5);
 
-            // Appel de la fonction pour changer le matériau
-            // changeMaterial(ru, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+            ruMaterial = ru.children[0].material.clone();
+
+            if (window.location.hash === '#ru-select') {
+                changeMaterial(ru, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
+                const divCache = document.getElementById('divCache');
+                divCache.style.display = 'block';
+            }
+
+            batiments.push({ isSelected: false, batiment: ru, material: ruMaterial });
 
             ru.traverse((child) => {
                 if (child.isMesh) {
@@ -771,6 +878,7 @@ Template Name: Map - Léopold OHNIMUS
 
     // STGI
     let stgi;
+    let stgiMaterial;
     const loaderStgi = new GLTFLoader();
 
     loaderStgi.load(
@@ -780,8 +888,15 @@ Template Name: Map - Léopold OHNIMUS
             stgi = gltf.scene;
             stgi.position.set(5.5, 0, -12.5);
 
-            // Appel de la fonction pour changer le matériau
-            // changeMaterial(stgi, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+            stgiMaterial = stgi.children[0].material.clone();
+
+            if (window.location.hash === '#stgi-select') {
+                changeMaterial(stgi, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
+                const divCache = document.getElementById('divCache');
+                divCache.style.display = 'block';
+            }
+
+            batiments.push({ isSelected: false, batiment: stgi, material: stgiMaterial });
 
             stgi.traverse((child) => {
                 if (child.isMesh) {
@@ -806,6 +921,7 @@ Template Name: Map - Léopold OHNIMUS
 
     // SVE
     let sve;
+    let sveMaterial;
     const loaderSve = new GLTFLoader();
 
     loaderSve.load(
@@ -815,8 +931,15 @@ Template Name: Map - Léopold OHNIMUS
             sve = gltf.scene;
             sve.position.set(5.5, 0, -12.5);
 
-            // Appel de la fonction pour changer le matériau
-            // changeMaterial(sve, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+            sveMaterial = sve.children[0].material.clone();
+
+            if (window.location.hash === '#sve-select') {
+                changeMaterial(sve, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
+                const divCache = document.getElementById('divCache');
+                divCache.style.display = 'block';
+            }
+
+            batiments.push({ isSelected: false, batiment: sve, material: sveMaterial });
 
             sve.traverse((child) => {
                 if (child.isMesh) {
@@ -841,6 +964,7 @@ Template Name: Map - Léopold OHNIMUS
 
     // SVE Amphi
     let svea;
+    let sveaMaterial;
     const loaderSvea = new GLTFLoader();
 
     loaderSvea.load(
@@ -850,8 +974,15 @@ Template Name: Map - Léopold OHNIMUS
             svea = gltf.scene;
             svea.position.set(5.5, 0, -12.5);
 
-            // Appel de la fonction pour changer le matériau
-            // changeMaterial(svea, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+            sveaMaterial = svea.children[0].material.clone();
+
+            if (window.location.hash === '#svea-select') {
+                changeMaterial(svea, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
+                const divCache = document.getElementById('divCache');
+                divCache.style.display = 'block';
+            }
+
+            batiments.push({ isSelected: false, batiment: svea, material: sveaMaterial });
 
             svea.traverse((child) => {
                 if (child.isMesh) {
@@ -876,6 +1007,7 @@ Template Name: Map - Léopold OHNIMUS
 
     // UTBM
     let utbm;
+    let utbmMaterial;
     const loaderUtbm = new GLTFLoader();
 
     loaderUtbm.load(
@@ -885,8 +1017,15 @@ Template Name: Map - Léopold OHNIMUS
             utbm = gltf.scene;
             utbm.position.set(5.5, 0, -12.5);
 
-            // Appel de la fonction pour changer le matériau
-            // changeMaterial(utbm, new THREE.MeshPhongMaterial({ color: 0xff0000 }));
+            utbmMaterial = utbm.children[0].material.clone();
+
+            if (window.location.hash === '#utbm-select') {
+                changeMaterial(utbm, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
+                const divCache = document.getElementById('divCache');
+                divCache.style.display = 'block';
+            }
+
+            batiments.push({ isSelected: false, batiment: utbm, material: utbmMaterial });
 
             utbm.traverse((child) => {
                 if (child.isMesh) {
@@ -1018,8 +1157,8 @@ Template Name: Map - Léopold OHNIMUS
 
     // Fonction pour surveiller la position de l'utilisateur toutes les 5 secondes
     function watchUserPosition() {
-    navigator.geolocation.getCurrentPosition(updateUserPosition);
-    console.log('Position mise à jour', userCube.position);
+        navigator.geolocation.getCurrentPosition(updateUserPosition);
+        // console.log('Position mise à jour', userCube.position);
     }
 
     // Lancement de la surveillance de la position de l'utilisateur toutes les 5 secondes
@@ -1249,6 +1388,9 @@ Template Name: Map - Léopold OHNIMUS
 
 
 
+    // Gestion de l'interaction au clic avec les bâtiments
+    // Tous les bâtiments
+
     function handleBatimentInteraction(event) {
         
         event.preventDefault();
@@ -1295,12 +1437,75 @@ Template Name: Map - Léopold OHNIMUS
 
             // Si un bâtiment a été cliqué, le sélectionner
             if (selectedBatiment) {
-                selectedBatiment.batiment.children[0].material = new THREE.MeshPhongMaterial({ color: 0xff6161 });
+                selectedBatiment.batiment.children[0].material = new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true });
                 selectedBatiment.isSelected = true;
                 // Afficher la div
                 divCache.style.display = 'block';
             }
         }   
     }
+
+
+
+
+    // Cas particulier du bâtiment MP
+
+    function handleBatimentMPInteraction(event) {
+        
+        event.preventDefault();
+
+        // Récupération de l'ID de l'élément cliqué et de ses ancêtres
+        const clickedElementId = event.target.id;
+        const draggableDivAncestorId = event.target.closest('#draggableDiv')?.id;
+
+        // Si l'élément cliqué ou l'un de ses ancêtres est dans la div draggableDiv, ne rien faire
+        if (clickedElementId === 'draggableDiv' || draggableDivAncestorId === 'draggableDiv') {
+            return;
+
+        } else {
+
+            // Calcul de la position de la souris dans le viewport
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+            // Mise à jour du rayon avec la position de la souris
+            raycaster.setFromCamera(mouse, camera);
+
+            // Récupération de la div à afficher/cacher
+            const divCacheMP = document.getElementById('divCacheMP');
+
+            let selectedMP = false;
+
+            // Parcourt de tous les bâtiments
+            
+            // Vérification si le rayon intersecte le bâtiment
+            let intersects = raycaster.intersectObject(mp, true);
+
+            // Si le rayon intersecte le bâtiment, le sélectionner
+            if (intersects.length > 0) {
+                selectedMP = true;
+
+            // Sinon, désélectionner le bâtiment
+            } else {
+                // Désélectionner le bâtiment si ce n'est pas celui qui a été cliqué
+                mp.children[0].children[0].material = mpMaterial1;
+                mp.children[0].children[1].material = mpMaterial1;
+                selectedMP = false;
+                divCacheMP.style.display = 'none';
+            }
+            
+
+            // Si un bâtiment a été cliqué, le sélectionner
+            if (selectedMP) {
+                mp.children[0].children[0].material = new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true });
+                mp.children[0].children[1].material = new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true });
+                selectedMP = true;
+                // Afficher la div
+                divCacheMP.style.display = 'block';
+            }
+        }   
+    }
+
+
 
 </script>
