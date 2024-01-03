@@ -73,7 +73,6 @@ Template Name: Map - Léopold OHNIMUS
     const mouse = new THREE.Vector2();
 
     // Ajouter un seul écouteur d'événements click sur le document
-    document.addEventListener('click', handleBatimentInteraction);
     document.addEventListener('click', handleBatimentMPInteraction);
 
     // Fonction pour mettre à jour la position de la souris
@@ -1388,11 +1387,17 @@ Template Name: Map - Léopold OHNIMUS
 
 
 
-    // Gestion de l'interaction au clic avec les bâtiments
-    // Tous les bâtiments
+    // Gestion de l'interaction avec les bâtiments
 
-    function handleBatimentInteraction(event) {
-        
+
+    // Récupération de la div à afficher/cacher pour les bâtiments
+    const divCache = document.getElementById('divCache');
+
+
+    // Fonction pour gérer l'interaction avec les bâtiments
+    function handleBatimentInteraction() {
+
+        // Prévenir le comportement par défaut
         event.preventDefault();
 
         // Récupération de l'ID de l'élément cliqué et de ses ancêtres
@@ -1402,9 +1407,9 @@ Template Name: Map - Léopold OHNIMUS
         // Si l'élément cliqué ou l'un de ses ancêtres est dans la div draggableDiv, ne rien faire
         if (clickedElementId === 'draggableDiv' || draggableDivAncestorId === 'draggableDiv') {
             return;
-
+        
+        // Sinon, gérer l'interaction avec les bâtiments
         } else {
-
             // Calcul de la position de la souris dans le viewport
             mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
             mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
@@ -1412,46 +1417,39 @@ Template Name: Map - Léopold OHNIMUS
             // Mise à jour du rayon avec la position de la souris
             raycaster.setFromCamera(mouse, camera);
 
-            // Récupération de la div à afficher/cacher
-            const divCache = document.getElementById('divCache');
-
-            let selectedBatiment = null;
-
             // Parcourt de tous les bâtiments
+            const intersects = batiments
+                .map(batiment => ({ batiment, intersect: raycaster.intersectObject(batiment.batiment, true) }))
+                .filter(({ intersect }) => intersect.length > 0)
+                .sort((a, b) => a.intersect[0].distance - b.intersect[0].distance);
+
+            // Désélectionner tous les bâtiments
             batiments.forEach(batiment => {
-                // Vérification si le rayon intersecte le bâtiment
-                let intersects = raycaster.intersectObject(batiment.batiment, true);
-
-                // Si le rayon intersecte le bâtiment, le sélectionner
-                if (intersects.length > 0) {
-                    selectedBatiment = batiment;
-
-                // Sinon, désélectionner le bâtiment
-                } else {
-                    // Désélectionner le bâtiment si ce n'est pas celui qui a été cliqué
-                    batiment.batiment.children[0].material = batiment.material;
-                    batiment.isSelected = false;
-                    divCache.style.display = 'none';
-                }
+                batiment.batiment.children[0].material = batiment.material;
+                batiment.isSelected = false;
             });
 
-            // Si un bâtiment a été cliqué, le sélectionner
-            if (selectedBatiment) {
-                selectedBatiment.batiment.children[0].material = new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true });
-                selectedBatiment.isSelected = true;
+            // Si il y a des intersections, sélectionner le bâtiment le plus proche
+            if (intersects.length > 0) {
+                const { batiment } = intersects[0];
+                batiment.batiment.children[0].material = new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true });
+                batiment.isSelected = true;
                 // Afficher la div
                 divCache.style.display = 'block';
+            } else {
+                // Si aucun bâtiment n'a été cliqué, cacher la div
+                divCache.style.display = 'none';
             }
-        }   
+        }
     }
 
 
 
 
-    // Cas particulier du bâtiment MP
-
+    // Fonction pour gérer l'interaction avec le bâtiment MP
     function handleBatimentMPInteraction(event) {
-        
+
+        // Prévenir le comportement par défaut
         event.preventDefault();
 
         // Récupération de l'ID de l'élément cliqué et de ses ancêtres
@@ -1462,6 +1460,7 @@ Template Name: Map - Léopold OHNIMUS
         if (clickedElementId === 'draggableDiv' || draggableDivAncestorId === 'draggableDiv') {
             return;
 
+        // Sinon, gérer l'interaction avec le bâtiment MP
         } else {
 
             // Calcul de la position de la souris dans le viewport
@@ -1474,9 +1473,8 @@ Template Name: Map - Léopold OHNIMUS
             // Récupération de la div à afficher/cacher
             const divCacheMP = document.getElementById('divCacheMP');
 
+            // Variable pour savoir si le bâtiment mp a été cliqué
             let selectedMP = false;
-
-            // Parcourt de tous les bâtiments
             
             // Vérification si le rayon intersecte le bâtiment
             let intersects = raycaster.intersectObject(mp, true);
@@ -1492,15 +1490,29 @@ Template Name: Map - Léopold OHNIMUS
                 mp.children[0].children[1].material = mpMaterial1;
                 selectedMP = false;
                 divCacheMP.style.display = 'none';
+
+                // Réitérer sur les autres bâtiments
+                handleBatimentInteraction();
             }
-            
 
             // Si un bâtiment a été cliqué, le sélectionner
             if (selectedMP) {
+
+                // Désélectionner tous les bâtiments
+                batiments.forEach(batiment => {
+                    batiment.batiment.children[0].material = batiment.material;
+                    batiment.isSelected = false;
+                });
+
+                // Cacher la div
+                divCache.style.display = 'none';
+
+                // Sélectionner le bâtiment mp
                 mp.children[0].children[0].material = new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true });
                 mp.children[0].children[1].material = new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true });
                 selectedMP = true;
-                // Afficher la div
+
+                // Afficher la div mp
                 divCacheMP.style.display = 'block';
             }
         }   
