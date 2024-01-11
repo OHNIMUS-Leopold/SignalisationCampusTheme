@@ -1054,6 +1054,379 @@ Template Name: Map - Léopold OHNIMUS
 
 
 
+    // Affichage des panneaux de signalisation
+    // Panneaux principaux
+
+    // Panneau 1
+    let panneau1;
+    let panneau1Material;
+    const loaderPanneau1 = new GLTFLoader();
+
+    loaderPanneau1.load(
+        'http://localhost/signalisation/wp-content/uploads/2024/01/blocpanneau.glb',
+
+        function ( gltf ) {
+            panneau1 = gltf.scene;
+            panneau1.position.set(-8, 0, 2.5);
+            // rotation du panneau 
+            panneau1.rotation.y = -40;
+
+            panneau1Material = panneau1.children[0].material.clone();
+
+            if (window.location.hash === '#panneau1-select') {
+                changeMaterial(panneau1, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
+                const divCache = document.getElementById('divCache');
+                divCache.style.display = 'block';
+            }
+
+            batiments.push({ isSelected: false, batiment: panneau1, material: panneau1Material });
+
+            panneau1.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( panneau1 );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
+
+    // Panneau 2
+    let panneau2;
+    let panneau2Material;
+    const loaderPanneau2 = new GLTFLoader();
+
+    loaderPanneau2.load(
+        'http://localhost/signalisation/wp-content/uploads/2024/01/blocpanneau.glb',
+
+        function ( gltf ) {
+            panneau2 = gltf.scene;
+            panneau2.position.set(-11.5, 0, -34);
+
+            panneau2Material = panneau2.children[0].material.clone();
+
+            if (window.location.hash === '#panneau2-select') {
+                changeMaterial(panneau2, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
+                const divCache = document.getElementById('divCache');
+                divCache.style.display = 'block';
+            }
+
+            batiments.push({ isSelected: false, batiment: panneau2, material: panneau2Material });
+
+            panneau2.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( panneau2 );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
+    
+    // Panneau 3
+    let panneau3;
+    let panneau3Material;
+    const loaderPanneau3 = new GLTFLoader();
+
+    loaderPanneau3.load(
+        'http://localhost/signalisation/wp-content/uploads/2024/01/blocpanneau.glb',
+
+        function ( gltf ) {
+            panneau3 = gltf.scene;
+            panneau3.position.set(40, 0, 1.5);
+            // rotation du panneau 
+            panneau3.rotation.y += Math.PI / 2;
+
+            panneau3Material = panneau3.children[0].material.clone();
+
+            if (window.location.hash === '#panneau3-select') {
+                changeMaterial(panneau3, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
+                const divCache = document.getElementById('divCache');
+                divCache.style.display = 'block';
+            }
+
+            batiments.push({ isSelected: false, batiment: panneau3, material: panneau3Material });
+
+            panneau3.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( panneau3 );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
+
+
+
+
+    // Panneaux de blocs
+
+    // Panneau 4
+    let panneau4;
+    let panneau4Material;
+    const loaderPanneau4 = new GLTFLoader();
+
+    loaderPanneau4.load(
+        'http://localhost/signalisation/wp-content/uploads/2024/01/blocpanneau.glb',
+
+        function ( gltf ) {
+            panneau4 = gltf.scene;
+            panneau4.position.set(8, 0, -2);
+            // rotation du panneau 
+            //panneau4.rotation.y += Math.PI / 2;
+
+            panneau4Material = panneau4.children[0].material.clone();
+
+            if (window.location.hash === '#panneau4-select') {
+                changeMaterial(panneau4, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
+                const divCache = document.getElementById('divCache');
+                divCache.style.display = 'block';
+            }
+
+            batiments.push({ isSelected: false, batiment: panneau4, material: panneau4Material });
+
+            panneau4.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( panneau4 );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
+
+    // Panneau 5
+    let panneau5;
+    let panneau5Material;
+    const loaderPanneau5 = new GLTFLoader();
+
+    loaderPanneau5.load(
+        'http://localhost/signalisation/wp-content/uploads/2024/01/blocpanneau.glb',
+
+        function ( gltf ) {
+            panneau5 = gltf.scene;
+            panneau5.position.set(-20, 0, 18);
+            // rotation du panneau 
+            panneau5.rotation.y += Math.PI / 2;
+
+            panneau5Material = panneau5.children[0].material.clone();
+
+            if (window.location.hash === '#panneau5-select') {
+                changeMaterial(panneau5, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
+                const divCache = document.getElementById('divCache');
+                divCache.style.display = 'block';
+            }
+
+            batiments.push({ isSelected: false, batiment: panneau5, material: panneau5Material });
+
+            panneau5.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( panneau5 );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
+
+    // Panneau 6
+    let panneau6;
+    let panneau6Material;
+    const loaderPanneau6 = new GLTFLoader();
+
+    loaderPanneau6.load(
+        'http://localhost/signalisation/wp-content/uploads/2024/01/blocpanneau.glb',
+
+        function ( gltf ) {
+            panneau6 = gltf.scene;
+            panneau6.position.set(1, 0, 6);
+            // rotation du panneau 
+            //panneau6.rotation.y += Math.PI / 2;
+
+            panneau6Material = panneau6.children[0].material.clone();
+
+            if (window.location.hash === '#panneau6-select') {
+                changeMaterial(panneau6, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
+                const divCache = document.getElementById('divCache');
+                divCache.style.display = 'block';
+            }
+
+            batiments.push({ isSelected: false, batiment: panneau6, material: panneau6Material });
+
+            panneau6.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( panneau6 );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
+
+    // Panneau 7
+    let panneau7;
+    let panneau7Material;
+    const loaderPanneau7 = new GLTFLoader();
+
+    loaderPanneau7.load(
+        'http://localhost/signalisation/wp-content/uploads/2024/01/blocpanneau.glb',
+
+        function ( gltf ) {
+            panneau7 = gltf.scene;
+            panneau7.position.set(15, 0, 10);
+            // rotation du panneau 
+            panneau7.rotation.y += Math.PI / 2;
+
+            panneau7Material = panneau7.children[0].material.clone();
+
+            if (window.location.hash === '#panneau7-select') {
+                changeMaterial(panneau7, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
+                const divCache = document.getElementById('divCache');
+                divCache.style.display = 'block';
+            }
+
+            batiments.push({ isSelected: false, batiment: panneau7, material: panneau7Material });
+
+            panneau7.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( panneau7 );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
+
+    // Panneau 8
+    let panneau8;
+    let panneau8Material;
+    const loaderPanneau8 = new GLTFLoader();
+
+    loaderPanneau8.load(
+        'http://localhost/signalisation/wp-content/uploads/2024/01/blocpanneau.glb',
+
+        function ( gltf ) {
+            panneau8 = gltf.scene;
+            panneau8.position.set(35.5, 0, 12);
+            // rotation du panneau 
+            // panneau8.rotation.y += Math.PI / 2;
+
+            panneau8Material = panneau8.children[0].material.clone();
+
+            if (window.location.hash === '#panneau8-select') {
+                changeMaterial(panneau8, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
+                const divCache = document.getElementById('divCache');
+                divCache.style.display = 'block';
+            }
+
+            batiments.push({ isSelected: false, batiment: panneau8, material: panneau8Material });
+
+            panneau8.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( panneau8 );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
+
+
+
+    // --------------------------------------------------------------------------------------------------------------------
+
+
+
+
     // Plan pour la géolocalisation
     // Création du plan en 2D
     const planeGeometry = new THREE.PlaneGeometry(89.5, 71.5);
