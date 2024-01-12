@@ -1690,6 +1690,8 @@ Template Name: Map - Léopold OHNIMUS
 
 
 
+    var searchForm = document.querySelector('.search');
+
     // Gestion du glisser/déposer de la div
 
     // Définition des variables
@@ -1730,13 +1732,21 @@ Template Name: Map - Léopold OHNIMUS
         var y = e.clientY - offsetY;
         
         // Limiter la position maximale vers le haut à 200 pixels du haut
-        y = Math.max(y, 200);
+        y = Math.max(y, 300); //200
 
         // Limiter la position maximale vers le bas à 50 pixels du bas
-        var maxHeight = window.innerHeight - 50;
+        var maxHeight = window.innerHeight - 21; //50
         y = Math.min(y, maxHeight);
 
         draggableDiv.style.top = y + 'px';
+
+        // Afficher le searchForm si draggableDiv est à 100px du bas
+        var distanceFromBottom = maxHeight - y;
+        if (distanceFromBottom <= 100) {
+            searchForm.style.display = 'flex'; 
+        } else {
+            searchForm.style.display = 'none';
+        }
 
         // Empêcher le comportement par défaut pour éviter le défilement indésirable sur les appareils tactiles
         // e.preventDefault();
@@ -1749,7 +1759,8 @@ Template Name: Map - Léopold OHNIMUS
 
     // Bouton pour déplacer la div vers le haut
     draggableButton.addEventListener('click', function() {
-        draggableDiv.style.top = '200px';
+        draggableDiv.style.top = '300px'; //200
+        searchForm.style.display = 'none';
     });
 
 
