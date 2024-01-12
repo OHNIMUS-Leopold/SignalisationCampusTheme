@@ -1913,6 +1913,19 @@ Template Name: Map - Léopold OHNIMUS
         } else {
             searchForm.style.display = 'none';
             divRecherche.style.display = 'block';
+            // const divCache = document.getElementById('divCache');
+            // divCache.style.display = 'none';
+            // const divCacheMP = document.getElementById('divCacheMP');
+            // divCache.style.display = 'none';
+        }
+
+        const divCache = document.getElementById('divCache');
+        
+        const divCacheMP = document.getElementById('divCacheMP');
+        
+        if(divCache.style.display == 'block' || divCacheMP.style.display == 'block'){
+            searchForm.style.display = 'flex'; 
+            divRecherche.style.display = 'none';
         }
 
         // Empêcher le comportement par défaut pour éviter le défilement indésirable sur les appareils tactiles
@@ -1991,8 +2004,10 @@ Template Name: Map - Léopold OHNIMUS
                 const { batiment } = intersects[0];
                 batiment.batiment.children[0].material = new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true });
                 batiment.isSelected = true;
+                filtrerContenuParNumero(batiment.numero);
                 // Afficher la div
                 divCache.style.display = 'block';
+                draggableDiv.style.top = '600px'; //200
                 divRecherche.style.display = 'none';
             } else {
                 // Si aucun bâtiment n'a été cliqué, cacher la div
@@ -2067,6 +2082,8 @@ Template Name: Map - Léopold OHNIMUS
                 // Cacher la div
                 divCache.style.display = 'none';
 
+                filtrerContenuParNumeroMP();
+
                 // Sélectionner le bâtiment mp
                 mp.children[0].children[0].material = new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true });
                 mp.children[0].children[1].material = new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true });
@@ -2074,6 +2091,7 @@ Template Name: Map - Léopold OHNIMUS
 
                 // Afficher la div mp
                 divCacheMP.style.display = 'block';
+                draggableDiv.style.top = '600px'; //200
                 divRecherche.style.display = 'none';
             }
         }   
@@ -2117,6 +2135,75 @@ Template Name: Map - Léopold OHNIMUS
         e.preventDefault(); // Empêche le comportement par défaut du lien
         window.location.href = $(this).attr('href'); // Redirige vers l'URL du lien
     });
+
+
+
+
+    // Afficher les données des bâtimens dans la div
+    
+    // Utilisation de délégués d'événements pour les liens générés dynamiquement dans divCache
+    $(document).on('click', '#divCache a', function (e) {
+        e.preventDefault(); // Empêche le comportement par défaut du lien
+        window.location.href = $(this).attr('href'); // Redirige vers l'URL du lien
+    });
+
+    // Fonction pour filtrer le contenu côté serveur
+    function filtrerContenuParNumero(numero) {
+        // Requête AJAX vers le serveur WordPress
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo admin_url('admin-ajax.php'); ?>', // Assurez-vous que 'ajaxurl' est défini dans votre script WordPress
+            data: {
+                action: 'filtrer_contenu_par_numero',
+                numero: numero
+            },
+            success: function (response) {
+                // 'response' contient le résultat de la requête AJAX côté serveur
+                // console.log(response);
+                $('#divCache').html(response);
+
+                // Utilisez la réponse pour afficher le contenu dans votre application JavaScript
+            }
+        });
+    }
+
+
+
+
+    // Cas de MP
+
+    // Utilisation de délégués d'événements pour les liens générés dynamiquement dans divCacheMP
+    $(document).on('click', '#divCacheMP a', function (e) {
+        e.preventDefault(); // Empêche le comportement par défaut du lien
+        window.location.href = $(this).attr('href'); // Redirige vers l'URL du lien
+    });
+
+    // Fonction pour filtrer le contenu côté serveur
+    function filtrerContenuParNumeroMP() {
+        // Requête AJAX vers le serveur WordPress
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo admin_url('admin-ajax.php'); ?>', // Assurez-vous que 'ajaxurl' est défini dans votre script WordPress
+            data: {
+                action: 'filtrer_contenu_par_numeroMP',
+                numero: '11'
+            },
+            success: function (response) {
+                // 'response' contient le résultat de la requête AJAX côté serveur
+                // console.log(response);
+                $('#divCacheMP').html(response);
+
+                // Utilisez la réponse pour afficher le contenu dans votre application JavaScript
+
+                // Si vous avez des liens dans le contenu ajouté dynamiquement,
+                // assurez-vous qu'ils soient également pris en charge par le délégué d'événements
+                $('#divCacheMP a').on('click', function (e) {
+                    e.preventDefault();
+                    window.location.href = $(this).attr('href');
+                });
+            }
+        });
+    }
 
 
 
