@@ -51,4 +51,43 @@
     }
     add_filter( 'upload_mimes', 'my_custom_mime_types' );
 
+
+
+
+    // Fonction de recherche utilisée avec Ajax
+
+    add_action('wp_ajax_search_departements', 'search_departements_callback');
+    add_action('wp_ajax_nopriv_search_departements', 'search_departements_callback');
+
+    function search_departements_callback() {
+        // Récupération du terme de recherche
+        $search_term = sanitize_text_field($_GET['search_term']);
+
+        // Utilisez WP_Query pour récupérer les résultats de recherche
+        $args = array(
+            'post_type' => 'departement',
+            's' => $search_term,
+        );
+
+        $query = new WP_Query($args);
+
+        // Boucle pour afficher les résultats
+        if ($query->have_posts()) :
+            while ($query->have_posts()) : $query->the_post();
+                // Affichez le contenu de votre type de contenu 'departement' ici
+                echo '<p><a href="' . get_permalink() . '">' . get_the_title() . '</a></p>';
+                echo '<hr>';
+            endwhile;
+        else :
+            echo 'Aucun résultat trouvé.';
+        endif;
+
+        // Réinitialisez les requêtes WordPress
+        wp_reset_postdata();
+
+        // Assurez-vous d'arrêter l'exécution du script après avoir envoyé la réponse
+        wp_die();
+    }
+
+    
 ?>

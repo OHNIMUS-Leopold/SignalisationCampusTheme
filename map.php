@@ -29,13 +29,27 @@ Template Name: Map - Léopold OHNIMUS
 <div id="draggableDiv" class="draggable">
     <span id="draggableButton" class="spanBtn"></span>
     <div class="contenu">
+        <form class="search-drag">
+            <label for="search-input-drag" class="search-label">Recherche</label>
+            <input type="text" id="search-input-drag" class="search-bar-drag" placeholder="Recherche">
+            <button class="search-btn-drag">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/icn/search.svg" alt="Recherche">
+            </button>
+        </form>
+
+        <div class="search-results"></div>
+        
+
+
+
+
         <div  id="divCache"  style="display: none;">MONTRE LA DIV</div>
         <div  id="divCacheMP"  style="display: none;">MONTRE LA DIV MP</div>
     </div>  
 </div>
 
 
-
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script type="module">
 
@@ -1901,6 +1915,46 @@ Template Name: Map - Léopold OHNIMUS
             }
         }   
     }
+
+
+
+
+    // --------------------------------------------------------------------------------------------------------------------
+
+
+
+
+    // Recherche
+
+    // Utilisation de délégués d'événements pour les éléments dynamiques
+    $(document).on('input', '#search-input-drag', function () {
+        // Attente de la fin de la saisie dans la barre de recherche
+        $('#search-input-drag').on('input', function () {
+            // Récupération de la valeur de la barre de recherche
+            var searchTerm = $(this).val();
+
+            // Requête AJAX vers le serveur WordPress
+            $.ajax({
+                type: 'GET',
+                url: '<?php echo admin_url('admin-ajax.php'); ?>', // Utilisez la fonction admin_url pour obtenir le chemin correct
+                data: {
+                    action: 'search_departements', // Nom de l'action côté serveur
+                    search_term: searchTerm
+                },
+                success: function (response) {
+                    // Affichage des résultats dans la div appropriée
+                    $('.search-results').html(response);
+                }
+            });
+        });
+    });
+
+    // Utilisation de délégués d'événements pour les liens générés dynamiquement
+    $(document).on('click', '.search-results a', function (e) {
+        e.preventDefault(); // Empêche le comportement par défaut du lien
+        window.location.href = $(this).attr('href'); // Redirige vers l'URL du lien
+    });
+
 
 
 
