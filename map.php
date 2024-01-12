@@ -1102,6 +1102,97 @@ Template Name: Map - Léopold OHNIMUS
 
 
 
+    // Crous résidence
+    let crous;
+    let crousMaterial;
+    const loaderCrous = new GLTFLoader();
+
+    loaderCrous.load(
+        'http://localhost/signalisation/wp-content/uploads/2024/01/Crous.glb',
+
+        function ( gltf ) {
+            crous = gltf.scene;
+            crous.position.set(5.5, 0, -12.5);
+
+            crousMaterial = crous.children[0].material.clone();
+
+            if (window.location.hash === '#crous-select') {
+                changeMaterial(crous, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
+                const divCache = document.getElementById('divCache');
+                divCache.style.display = 'block';
+                const divRecherche = document.getElementById('rechercheDiv');
+                divRecherche.style.display = 'none';
+            }
+
+            batiments.push({ isSelected: false, batiment: crous, material: crousMaterial });
+
+            crous.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( crous );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
+
+
+
+    // Polyclinique
+    let polyclinique;
+    let polycliniqueMaterial;
+    const loaderPolyclinique = new GLTFLoader();
+
+    loaderPolyclinique.load(
+        'http://localhost/signalisation/wp-content/uploads/2024/01/Polyclinique.glb',
+
+        function ( gltf ) {
+            polyclinique = gltf.scene;
+            polyclinique.position.set(5.5, 0, -12.5);
+
+            polycliniqueMaterial = polyclinique.children[0].material.clone();
+
+            if (window.location.hash === '#polyclinique-select') {
+                changeMaterial(polyclinique, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
+                const divCache = document.getElementById('divCache');
+                divCache.style.display = 'block';
+                const divRecherche = document.getElementById('rechercheDiv');
+                divRecherche.style.display = 'none';
+            }
+
+            batiments.push({ isSelected: false, batiment: polyclinique, material: polycliniqueMaterial });
+
+            polyclinique.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            scene.add( polyclinique );
+        },
+
+        function xhrProgress( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+
+        function ( error ) {
+            console.log( 'An error happened' );
+            console.log( error );
+        }
+    );
+
     // --------------------------------------------------------------------------------------------------------------------
 
 
