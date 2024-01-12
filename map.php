@@ -266,7 +266,7 @@ Template Name: Map - Léopold OHNIMUS
             }
 
             // Ajout de la bu dans le tableau des bâtiments
-            batiments.push({ isSelected: false, batiment: bu, material: buMaterial });
+            batiments.push({ isSelected: false, batiment: bu, material: buMaterial, numero: '10' });
 
             bu.traverse((child) => {
                 if (child.isMesh) {
@@ -311,7 +311,7 @@ Template Name: Map - Léopold OHNIMUS
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: centre, material: centreMaterial });
+            batiments.push({ isSelected: false, batiment: centre, material: centreMaterial, numero: '7' });
 
             centre.traverse((child) => {
                 if (child.isMesh) {
@@ -356,7 +356,7 @@ Template Name: Map - Léopold OHNIMUS
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: cnam, material: cnamMaterial });
+            batiments.push({ isSelected: false, batiment: cnam, material: cnamMaterial, numero: '19' });
 
             cnam.traverse((child) => {
                 if (child.isMesh) {
@@ -401,7 +401,7 @@ Template Name: Map - Léopold OHNIMUS
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: dejeps, material: dejepsMaterial });
+            batiments.push({ isSelected: false, batiment: dejeps, material: dejepsMaterial, numero: '2' });
 
             dejeps.traverse((child) => {
                 if (child.isMesh) {
@@ -446,7 +446,7 @@ Template Name: Map - Léopold OHNIMUS
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: gaco, material: gacoMaterial });
+            batiments.push({ isSelected: false, batiment: gaco, material: gacoMaterial, numero: '9' });
 
             gaco.traverse((child) => {
                 if (child.isMesh) {
@@ -491,7 +491,7 @@ Template Name: Map - Léopold OHNIMUS
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: gamphi, material: gamphiMaterial });
+            batiments.push({ isSelected: false, batiment: gamphi, material: gamphiMaterial, numero: '13' });
 
             gamphi.traverse((child) => {
                 if (child.isMesh) {
@@ -536,7 +536,7 @@ Template Name: Map - Léopold OHNIMUS
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: ifms, material: ifmsMaterial });
+            batiments.push({ isSelected: false, batiment: ifms, material: ifmsMaterial, numero: '14' });
 
             ifms.traverse((child) => {
                 if (child.isMesh) {
@@ -581,7 +581,7 @@ Template Name: Map - Léopold OHNIMUS
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: lea, material: leaMaterial });
+            batiments.push({ isSelected: false, batiment: lea, material: leaMaterial, numero: '12' });
 
             lea.traverse((child) => {
                 if (child.isMesh) {
@@ -626,7 +626,7 @@ Template Name: Map - Léopold OHNIMUS
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: minamas, material: minamasMaterial });
+            batiments.push({ isSelected: false, batiment: minamas, material: minamasMaterial, numero: '6' });
 
             minamas.traverse((child) => {
                 if (child.isMesh) {
@@ -671,7 +671,7 @@ Template Name: Map - Léopold OHNIMUS
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: mmi, material: mmiMaterial });
+            batiments.push({ isSelected: false, batiment: mmi, material: mmiMaterial, numero: '18' });
 
             mmi.traverse((child) => {
                 if (child.isMesh) {
@@ -762,7 +762,7 @@ Template Name: Map - Léopold OHNIMUS
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: numerica, material: numericaMaterial });
+            batiments.push({ isSelected: false, batiment: numerica, material: numericaMaterial, numero: '20' });
 
             numerica.traverse((child) => {
                 if (child.isMesh) {
@@ -807,7 +807,7 @@ Template Name: Map - Léopold OHNIMUS
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: numerica2, material: numerica2Material });
+            batiments.push({ isSelected: false, batiment: numerica2, material: numerica2Material, numero: '1' });
 
             numerica2.traverse((child) => {
                 if (child.isMesh) {
@@ -852,7 +852,7 @@ Template Name: Map - Léopold OHNIMUS
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: rt, material: rtMaterial });
+            batiments.push({ isSelected: false, batiment: rt, material: rtMaterial, numero: '8' });
 
             rt.traverse((child) => {
                 if (child.isMesh) {
@@ -897,7 +897,7 @@ Template Name: Map - Léopold OHNIMUS
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: ru, material: ruMaterial });
+            batiments.push({ isSelected: false, batiment: ru, material: ruMaterial, numero: '3' });
 
             ru.traverse((child) => {
                 if (child.isMesh) {
@@ -942,7 +942,7 @@ Template Name: Map - Léopold OHNIMUS
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: stgi, material: stgiMaterial });
+            batiments.push({ isSelected: false, batiment: stgi, material: stgiMaterial, numero: '15' });
 
             stgi.traverse((child) => {
                 if (child.isMesh) {
@@ -987,7 +987,7 @@ Template Name: Map - Léopold OHNIMUS
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: sve, material: sveMaterial });
+            batiments.push({ isSelected: false, batiment: sve, material: sveMaterial, numero: '16' });
 
             sve.traverse((child) => {
                 if (child.isMesh) {
@@ -1032,7 +1032,7 @@ Template Name: Map - Léopold OHNIMUS
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: svea, material: sveaMaterial });
+            batiments.push({ isSelected: false, batiment: svea, material: sveaMaterial, numero: '17' });
 
             svea.traverse((child) => {
                 if (child.isMesh) {
@@ -1077,7 +1077,7 @@ Template Name: Map - Léopold OHNIMUS
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: utbm, material: utbmMaterial });
+            batiments.push({ isSelected: false, batiment: utbm, material: utbmMaterial, numero: '4' });
 
             utbm.traverse((child) => {
                 if (child.isMesh) {
@@ -1124,7 +1124,7 @@ Template Name: Map - Léopold OHNIMUS
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: crous, material: crousMaterial });
+            batiments.push({ isSelected: false, batiment: crous, material: crousMaterial, numero: '5' });
 
             crous.traverse((child) => {
                 if (child.isMesh) {
@@ -1171,7 +1171,7 @@ Template Name: Map - Léopold OHNIMUS
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: polyclinique, material: polycliniqueMaterial });
+            batiments.push({ isSelected: false, batiment: polyclinique, material: polycliniqueMaterial, numero: '0' });
 
             polyclinique.traverse((child) => {
                 if (child.isMesh) {
@@ -1225,7 +1225,7 @@ Template Name: Map - Léopold OHNIMUS
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: panneau1, material: panneau1Material });
+            batiments.push({ isSelected: false, batiment: panneau1, material: panneau1Material, numero: '' });
 
             panneau1.traverse((child) => {
                 if (child.isMesh) {
@@ -1270,7 +1270,7 @@ Template Name: Map - Léopold OHNIMUS
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: panneau2, material: panneau2Material });
+            batiments.push({ isSelected: false, batiment: panneau2, material: panneau2Material, numero: '' });
 
             panneau2.traverse((child) => {
                 if (child.isMesh) {
@@ -1317,7 +1317,7 @@ Template Name: Map - Léopold OHNIMUS
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: panneau3, material: panneau3Material });
+            batiments.push({ isSelected: false, batiment: panneau3, material: panneau3Material, numero: '' });
 
             panneau3.traverse((child) => {
                 if (child.isMesh) {
@@ -1369,7 +1369,7 @@ Template Name: Map - Léopold OHNIMUS
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: panneau4, material: panneau4Material });
+            batiments.push({ isSelected: false, batiment: panneau4, material: panneau4Material, numero: '' });
 
             panneau4.traverse((child) => {
                 if (child.isMesh) {
@@ -1416,7 +1416,7 @@ Template Name: Map - Léopold OHNIMUS
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: panneau5, material: panneau5Material });
+            batiments.push({ isSelected: false, batiment: panneau5, material: panneau5Material, numero: '' });
 
             panneau5.traverse((child) => {
                 if (child.isMesh) {
@@ -1463,7 +1463,7 @@ Template Name: Map - Léopold OHNIMUS
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: panneau6, material: panneau6Material });
+            batiments.push({ isSelected: false, batiment: panneau6, material: panneau6Material, numero: '' });
 
             panneau6.traverse((child) => {
                 if (child.isMesh) {
@@ -1510,7 +1510,7 @@ Template Name: Map - Léopold OHNIMUS
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: panneau7, material: panneau7Material });
+            batiments.push({ isSelected: false, batiment: panneau7, material: panneau7Material, numero: '' });
 
             panneau7.traverse((child) => {
                 if (child.isMesh) {
@@ -1557,7 +1557,7 @@ Template Name: Map - Léopold OHNIMUS
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: panneau8, material: panneau8Material });
+            batiments.push({ isSelected: false, batiment: panneau8, material: panneau8Material, numero: '' });
 
             panneau8.traverse((child) => {
                 if (child.isMesh) {
@@ -1928,6 +1928,7 @@ Template Name: Map - Léopold OHNIMUS
     draggableButton.addEventListener('click', function() {
         draggableDiv.style.top = '300px'; //200
         searchForm.style.display = 'none';
+        divRecherche.style.display = 'block';
     });
 
     // Bouton pour déplacer la div vers le haut
@@ -1935,6 +1936,7 @@ Template Name: Map - Léopold OHNIMUS
         draggableDiv.style.top = '300px'; //200
         searchForm.style.display = 'none';
         document.getElementById('search-input-drag').focus();
+        divRecherche.style.display = 'block';
     });
 
 
