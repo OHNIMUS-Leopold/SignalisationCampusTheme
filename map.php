@@ -1850,6 +1850,9 @@ Template Name: Map - Léopold OHNIMUS
 
 
 
+    // Récupération de la div à afficher/cacher pour les bâtiments
+    const divRecherche = document.getElementById('rechercheDiv');
+
     var searchForm = document.querySelector('.search');
 
     // Gestion du glisser/déposer de la div
@@ -1858,6 +1861,8 @@ Template Name: Map - Léopold OHNIMUS
     var draggableDiv = document.getElementById('draggableDiv');
     var draggableButton = document.getElementById('draggableButton');
     var offsetY, isDragging = false;
+
+    //var inputBtn = document.getElementsByClassName('search');
 
     // Événements souris
     draggableDiv.addEventListener('mousedown', startDragging);
@@ -1904,8 +1909,10 @@ Template Name: Map - Léopold OHNIMUS
         var distanceFromBottom = maxHeight - y;
         if (distanceFromBottom <= 100) {
             searchForm.style.display = 'flex'; 
+            divRecherche.style.display = 'none';
         } else {
             searchForm.style.display = 'none';
+            divRecherche.style.display = 'block';
         }
 
         // Empêcher le comportement par défaut pour éviter le défilement indésirable sur les appareils tactiles
@@ -1923,7 +1930,12 @@ Template Name: Map - Léopold OHNIMUS
         searchForm.style.display = 'none';
     });
 
-
+    // Bouton pour déplacer la div vers le haut
+    searchForm.addEventListener('click', function() {
+        draggableDiv.style.top = '300px'; //200
+        searchForm.style.display = 'none';
+        document.getElementById('search-input-drag').focus();
+    });
 
 
     // --------------------------------------------------------------------------------------------------------------------
@@ -1936,10 +1948,6 @@ Template Name: Map - Léopold OHNIMUS
 
     // Récupération de la div à afficher/cacher pour les bâtiments
     const divCache = document.getElementById('divCache');
-
-    // Récupération de la div à afficher/cacher pour les bâtiments
-    const divRecherche = document.getElementById('rechercheDiv');
-
 
     // Fonction pour gérer l'interaction avec les bâtiments
     function handleBatimentInteraction() {
