@@ -65,9 +65,11 @@
 
         // Utilisez WP_Query pour récupérer les résultats de recherche
         $args = array(
-            'post_type' => array('departement', 'formation'),
+            // 'post_type' => array('departement', 'formation'),
+            'post_type' => 'departement',
             's' => $search_term,
-            'orderby' => 'post_type', // Tri par type de poste
+            'orderby' => 'title',
+            //'orderby' => 'post_type', // Tri par type de poste
             'order' => 'ASC', // Tri ascendant pour mettre 'departement' en premier
         );
 

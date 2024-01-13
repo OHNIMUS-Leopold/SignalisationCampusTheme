@@ -218,3 +218,93 @@ font-family: 'Outfit', sans-serif; */
     border: 0;
     border-top: 1px solid #000000;
 }
+
+.image-thumb {
+    width: 100%;
+    height: auto;
+    margin: 70px auto 0;
+}
+
+.arrondi {
+    border-radius: 100% 100% 0 0; 
+    background-color: #FFFFFF; 
+    padding-top: 76px;
+    margin-top: -80px;
+    position: relative;
+    z-index: 10;
+}
+
+.details {
+    background-color: #FFFFFF;
+    position: relative;
+    z-index: 10;
+    padding: 0 20px;
+}
+
+.details-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: #000000;
+    margin-bottom: 16px;
+}
+
+.details-div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.details-div-info {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #000000;
+}
+
+.details-div img {
+    height: 16px;
+}
+
+.details-site img {
+    height: 18px;
+}
+
+.details-div-info a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.details-div-resp {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #000000;
+    margin-bottom: 4px;
+}
+
+.details-div-resp a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.title-resp {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #000000;
+    margin: 16px auto 12px;
+}
+
+.itineraire-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+/* .itineraire-img {
+    display: inline-block;
+    text-align: center;
+} */
