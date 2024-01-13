@@ -261,6 +261,8 @@ Template Name: Map - Léopold OHNIMUS
                 // Affichage de la div
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
+                filtrerContenuParNumero('10');
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
@@ -307,6 +309,8 @@ Template Name: Map - Léopold OHNIMUS
                 changeMaterial(centre, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
+                filtrerContenuParNumero('7');
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
@@ -352,6 +356,8 @@ Template Name: Map - Léopold OHNIMUS
                 changeMaterial(cnam, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
+                filtrerContenuParNumero('19');
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
@@ -397,6 +403,8 @@ Template Name: Map - Léopold OHNIMUS
                 changeMaterial(dejeps, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
+                filtrerContenuParNumero('2');
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
@@ -442,6 +450,8 @@ Template Name: Map - Léopold OHNIMUS
                 changeMaterial(gaco, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
+                filtrerContenuParNumero('9');
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
@@ -487,6 +497,8 @@ Template Name: Map - Léopold OHNIMUS
                 changeMaterial(gamphi, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
+                filtrerContenuParNumero('13');
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
@@ -532,6 +544,8 @@ Template Name: Map - Léopold OHNIMUS
                 changeMaterial(ifms, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
+                filtrerContenuParNumero('14');
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
@@ -577,6 +591,8 @@ Template Name: Map - Léopold OHNIMUS
                 changeMaterial(lea, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
+                filtrerContenuParNumero('12');
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
@@ -622,6 +638,8 @@ Template Name: Map - Léopold OHNIMUS
                 changeMaterial(minamas, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
+                filtrerContenuParNumero('6');
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
@@ -667,6 +685,8 @@ Template Name: Map - Léopold OHNIMUS
                 changeMaterial(mmi, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
+                filtrerContenuParNumero('18');
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
@@ -715,6 +735,8 @@ Template Name: Map - Léopold OHNIMUS
                 mp.children[0].children[1].material = new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true });
                 const divCacheMP = document.getElementById('divCacheMP');
                 divCacheMP.style.display = 'block';
+                filtrerContenuParNumeroMP();
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
@@ -758,6 +780,8 @@ Template Name: Map - Léopold OHNIMUS
                 changeMaterial(numerica, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
+                filtrerContenuParNumero('20');
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
@@ -803,6 +827,8 @@ Template Name: Map - Léopold OHNIMUS
                 changeMaterial(numerica2, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
+                filtrerContenuParNumero('1');
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
@@ -848,6 +874,8 @@ Template Name: Map - Léopold OHNIMUS
                 changeMaterial(rt, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
+                filtrerContenuParNumero('8');
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
@@ -893,6 +921,8 @@ Template Name: Map - Léopold OHNIMUS
                 changeMaterial(ru, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
+                filtrerContenuParNumero('3');
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
@@ -938,6 +968,8 @@ Template Name: Map - Léopold OHNIMUS
                 changeMaterial(stgi, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
+                filtrerContenuParNumero('15');
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
@@ -983,6 +1015,8 @@ Template Name: Map - Léopold OHNIMUS
                 changeMaterial(sve, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
+                filtrerContenuParNumero('16');
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
@@ -1028,6 +1062,8 @@ Template Name: Map - Léopold OHNIMUS
                 changeMaterial(svea, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
+                filtrerContenuParNumero('17');
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
@@ -1073,6 +1109,8 @@ Template Name: Map - Léopold OHNIMUS
                 changeMaterial(utbm, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
+                filtrerContenuParNumero('4');
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
@@ -1120,6 +1158,8 @@ Template Name: Map - Léopold OHNIMUS
                 changeMaterial(crous, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
+                filtrerContenuParNumero('5');
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
@@ -1167,6 +1207,8 @@ Template Name: Map - Léopold OHNIMUS
                 changeMaterial(polyclinique, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
+                filtrerContenuParNumero('0');
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
@@ -1221,11 +1263,12 @@ Template Name: Map - Léopold OHNIMUS
                 changeMaterial(panneau1, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: panneau1, material: panneau1Material, numero: '' });
+            batiments.push({ isSelected: false, batiment: panneau1, material: panneau1Material, numero: '31' });
 
             panneau1.traverse((child) => {
                 if (child.isMesh) {
@@ -1266,11 +1309,12 @@ Template Name: Map - Léopold OHNIMUS
                 changeMaterial(panneau2, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: panneau2, material: panneau2Material, numero: '' });
+            batiments.push({ isSelected: false, batiment: panneau2, material: panneau2Material, numero: '32' });
 
             panneau2.traverse((child) => {
                 if (child.isMesh) {
@@ -1313,11 +1357,12 @@ Template Name: Map - Léopold OHNIMUS
                 changeMaterial(panneau3, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: panneau3, material: panneau3Material, numero: '' });
+            batiments.push({ isSelected: false, batiment: panneau3, material: panneau3Material, numero: '33' });
 
             panneau3.traverse((child) => {
                 if (child.isMesh) {
@@ -1365,11 +1410,12 @@ Template Name: Map - Léopold OHNIMUS
                 changeMaterial(panneau4, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: panneau4, material: panneau4Material, numero: '' });
+            batiments.push({ isSelected: false, batiment: panneau4, material: panneau4Material, numero: '34' });
 
             panneau4.traverse((child) => {
                 if (child.isMesh) {
@@ -1412,11 +1458,12 @@ Template Name: Map - Léopold OHNIMUS
                 changeMaterial(panneau5, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: panneau5, material: panneau5Material, numero: '' });
+            batiments.push({ isSelected: false, batiment: panneau5, material: panneau5Material, numero: '35' });
 
             panneau5.traverse((child) => {
                 if (child.isMesh) {
@@ -1459,11 +1506,12 @@ Template Name: Map - Léopold OHNIMUS
                 changeMaterial(panneau6, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: panneau6, material: panneau6Material, numero: '' });
+            batiments.push({ isSelected: false, batiment: panneau6, material: panneau6Material, numero: '36' });
 
             panneau6.traverse((child) => {
                 if (child.isMesh) {
@@ -1506,11 +1554,12 @@ Template Name: Map - Léopold OHNIMUS
                 changeMaterial(panneau7, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: panneau7, material: panneau7Material, numero: '' });
+            batiments.push({ isSelected: false, batiment: panneau7, material: panneau7Material, numero: '37' });
 
             panneau7.traverse((child) => {
                 if (child.isMesh) {
@@ -1553,11 +1602,12 @@ Template Name: Map - Léopold OHNIMUS
                 changeMaterial(panneau8, new THREE.MeshPhongMaterial({ color: 0xff6161, side: THREE.DoubleSide, depthTest: true, depthWrite: true }));
                 const divCache = document.getElementById('divCache');
                 divCache.style.display = 'block';
+                draggableDiv.style.top = '650px';
                 const divRecherche = document.getElementById('rechercheDiv');
                 divRecherche.style.display = 'none';
             }
 
-            batiments.push({ isSelected: false, batiment: panneau8, material: panneau8Material, numero: '' });
+            batiments.push({ isSelected: false, batiment: panneau8, material: panneau8Material, numero: '38' });
 
             panneau8.traverse((child) => {
                 if (child.isMesh) {
@@ -1863,6 +1913,7 @@ Template Name: Map - Léopold OHNIMUS
     var offsetY, isDragging = false;
 
     //var inputBtn = document.getElementsByClassName('search');
+    draggableDiv.style.top = window.innerHeight - 21 + 'px';
 
     // Événements souris
     draggableDiv.addEventListener('mousedown', startDragging);
@@ -2007,11 +2058,12 @@ Template Name: Map - Léopold OHNIMUS
                 filtrerContenuParNumero(batiment.numero);
                 // Afficher la div
                 divCache.style.display = 'block';
-                draggableDiv.style.top = '600px'; //200
+                draggableDiv.style.top = '650px'; //200
                 divRecherche.style.display = 'none';
             } else {
                 // Si aucun bâtiment n'a été cliqué, cacher la div
                 divCache.style.display = 'none';
+                //draggableDiv.style.top = '790px';
                 divRecherche.style.display = 'block';
             }
         }
@@ -2091,7 +2143,7 @@ Template Name: Map - Léopold OHNIMUS
 
                 // Afficher la div mp
                 divCacheMP.style.display = 'block';
-                draggableDiv.style.top = '600px'; //200
+                draggableDiv.style.top = '650px'; //200
                 divRecherche.style.display = 'none';
             }
         }   

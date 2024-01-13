@@ -78,7 +78,7 @@ font-family: 'Outfit', sans-serif; */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 14px auto 0 auto;
+    margin: 14px auto 4px auto;
     width: 80%;
     background-color: #E9E9E9;
     z-index: 1;
@@ -138,7 +138,7 @@ font-family: 'Outfit', sans-serif; */
 .draggable {
     position: absolute;
     /* bottom: -80%; */
-    bottom: -83.5%;
+    /* bottom: -83.5%; */
     left: 0;
     right: 0;
     z-index: 10;
@@ -172,4 +172,49 @@ font-family: 'Outfit', sans-serif; */
     .draggable {
         display: none;
     }
+}
+
+.preview-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: #000000;
+    width: 80%;
+    margin: 18px auto 16px auto;
+}
+
+.preview-link {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #000000;
+    width: 80%;
+    margin: auto;
+    text-decoration: none;
+    
+}
+
+.search-results {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.list-item {
+    text-align: left;
+    margin: 16px auto;
+}
+
+.list-item-link {
+    text-decoration: none;
+    color: #000000;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.list-item-hr {
+    margin: 0;
+    border: 0;
+    border-top: 1px solid #000000;
 }

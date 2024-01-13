@@ -77,8 +77,8 @@
         if ($query->have_posts()) :
             while ($query->have_posts()) : $query->the_post();
                 // Affichez le contenu de votre type de contenu 'departement' ici
-                echo '<p><a href="' . get_permalink() . '">' . get_the_title() . '</a></p>';
-                echo '<hr>';
+                echo '<p class="list-item"><a class="list-item-link" href="' . get_permalink() . '">' . get_the_title() . '</a></p>';
+                echo '<hr class="list-item-hr">';
             endwhile;
         else :
             echo 'Aucun résultat trouvé.';
@@ -121,12 +121,11 @@
             while ($query->have_posts()) : $query->the_post();
                 // Affichez le contenu de votre type de contenu 'departement' ici
                 $post_title = get_the_title();
-                $post_content = get_the_content();
+                // $post_content = get_the_content();
                 // Vous pouvez personnaliser cette partie en fonction de votre besoin
-                echo '<h2>' . $post_title . '</h2>';
-                echo '<div>' . $post_content . '</div>';
+                echo '<h1 class="preview-title">' . $post_title . '</h1>';
                 // Bouton vers la page du département
-                echo '<a href="' . get_permalink() . '">Voir le département</a>';
+                echo '<a class="preview-link" href="' . get_permalink() . '">Voir plus ></a>';
             endwhile;
         else :
             echo 'Aucune donnée trouvée pour ce batiment.';
@@ -171,12 +170,11 @@
             while ($query->have_posts()) : $query->the_post();
                 // Affichez le contenu de votre type de contenu 'departement' ici
                 $post_title = get_the_title();
-                $post_content = get_the_content();
+                // $post_content = get_the_content();
                 // Vous pouvez personnaliser cette partie en fonction de votre besoin
-                echo '<h2>' . $post_title . '</h2>';
-                echo '<div>' . $post_content . '</div>';
+                echo '<h1 class="preview-title">' . $post_title . '</h1>';
                 // Bouton vers la page du département
-                echo '<a href="' . get_permalink() . '">Voir le département</a>';
+                echo '<a class="preview-link" href="' . get_permalink() . '">Voir plus ></a>';
             endwhile;
         else :
             echo 'Aucune donnée trouvée pour ce batiment.';
