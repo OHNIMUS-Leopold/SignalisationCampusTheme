@@ -39,12 +39,21 @@ font-family: 'Outfit', sans-serif; */
     margin-top: 0px;
     z-index: 50;
     position: relative;
-    background-color: yellow;
+    
     height: 100vh;
 }
 
 #reader {
-    margin-top: 50px;
+    margin-top: 100px;
+    background-color: #FFFFFF;
+}
+
+#result {
+    margin-top: 100px;
+    padding: 50px 0 50px 0;
+    background-color: #FFFFFF;
+    text-align: center;
+    font-family: 'Outfit', sans-serif;
 }
 
 .titre {

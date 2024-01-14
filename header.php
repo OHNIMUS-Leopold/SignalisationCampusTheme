@@ -31,7 +31,7 @@
             'container_class' => 'main-nav'
           ));
         ?>
-        <h1 class="titre"><?php bloginfo('name'); ?></h1>
+        <p class="titre"><a href="<?php echo home_url(); ?>" style="text-decoration: none; color: #ffffff;"><?php bloginfo('name'); ?></a></p>
         <button class="bouton" id="toggleScan">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/icn/scan.svg" alt="Scanner">
         </button>

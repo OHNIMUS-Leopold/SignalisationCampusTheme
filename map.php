@@ -10,7 +10,6 @@ Template Name: Map - Léopold OHNIMUS
 <?php get_header(); ?>
 
 <div class="QRCode">
-    <button id="btnBack">Cliquez-moi</button>
     <div id="reader"></div>
     <div id="result"></div>
 </div>
@@ -40,12 +39,8 @@ Template Name: Map - Léopold OHNIMUS
             <div class="search-results"></div>
         </div>
         
-
-
-
-
-        <div  id="divCache"  style="display: none;">MONTRE LA DIV</div>
-        <div  id="divCacheMP"  style="display: none;">MONTRE LA DIV MP</div>
+        <div  id="divCache"  style="display: none;"></div>
+        <div  id="divCacheMP"  style="display: none;"></div>
     </div>  
 </div>
 
@@ -1662,14 +1657,6 @@ Template Name: Map - Léopold OHNIMUS
     borderLines.position.set(0, 0, 0);
     borderLines.rotation.x = -Math.PI / 2; // Rotation de 90 degrés autour de l'axe X pour les bordures
     scene.add(borderLines);
-
-
-    // COORDONNEES DEP MMI
-
-    // const topLeftLat = 47.495786;
-    // const topLeftLon = 6.804308;
-    // const bottomRightLat = 47.494911;
-    // const bottomRightLon = 6.806146;
 
 
     // Actualisation de la position GPS de l'utilisateur dans le plan toutes les 5 secondes

@@ -83,7 +83,7 @@
                 echo '<hr class="list-item-hr">';
             endwhile;
         else :
-            echo 'Aucun résultat trouvé.';
+            echo '<p class="list-item list-item-link" style="text-align: center;">Aucun résultat trouvé.</p>';
         endif;
 
         // Réinitialisez les requêtes WordPress
@@ -130,7 +130,7 @@
                 echo '<a class="preview-link" href="' . get_permalink() . '">Voir plus ></a>';
             endwhile;
         else :
-            echo 'Aucune donnée trouvée pour ce batiment.';
+            echo '<p class="list-item list-item-link" style="text-align: center;">Aucune donnée à afficher.</p>';
         endif;
 
         // Réinitialisez les requêtes WordPress
@@ -179,7 +179,7 @@
                 echo '<a class="preview-link" href="' . get_permalink() . '">Voir plus ></a>';
             endwhile;
         else :
-            echo 'Aucune donnée trouvée pour ce batiment.';
+            echo '<p class="list-item list-item-link" style="text-align: center;">Aucune donnée à afficher.</p>';
         endif;
     
         // Réinitialisez les requêtes WordPress
