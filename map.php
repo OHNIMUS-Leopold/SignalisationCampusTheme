@@ -25,7 +25,7 @@ Template Name: Map - Léopold OHNIMUS
     </button>
 </form>
 
-<button onclick="window.location.href='<?php echo home_url('/livraison'); ?>'" style="display: contents;">
+<button id="btnLivraison" onclick="window.location.href='<?php echo home_url('/livraison'); ?>'" style="display: contents;">
     <div class="livrer">
         <img class="livrer-img" src="<?php echo get_template_directory_uri(); ?>/assets/icn/camion.svg" alt="Livraison">
         <p class="livrer-text">Livraison</p>
@@ -1896,6 +1896,7 @@ Template Name: Map - Léopold OHNIMUS
 
     // Récupération de la div à afficher/cacher pour les bâtiments
     const divRecherche = document.getElementById('rechercheDiv');
+    const btnLiv = document.getElementById('btnLivraison');
 
     var searchForm = document.querySelector('.search');
 
@@ -1964,6 +1965,12 @@ Template Name: Map - Léopold OHNIMUS
             // divCache.style.display = 'none';
         }
 
+        if (distanceFromBottom <= 20) {
+            btnLiv.style.display = 'contents';
+        } else {
+            btnLiv.style.display = 'none';
+        }
+
         const divCache = document.getElementById('divCache');
         
         const divCacheMP = document.getElementById('divCacheMP');
@@ -1987,10 +1994,12 @@ Template Name: Map - Léopold OHNIMUS
         draggableDiv.style.top = '300px'; //200
         searchForm.style.display = 'none';
         divRecherche.style.display = 'block';
+        btnLiv.style.display = 'none';
     });
 
     // Bouton pour déplacer la div vers le haut
     searchForm.addEventListener('click', function() {
+        btnLiv.style.display = 'none';
         draggableDiv.style.top = '300px'; //200
         searchForm.style.display = 'none';
         document.getElementById('search-input-drag').focus();
@@ -2054,6 +2063,7 @@ Template Name: Map - Léopold OHNIMUS
                 divCache.style.display = 'block';
                 draggableDiv.style.top = '650px'; //200
                 divRecherche.style.display = 'none';
+                btnLiv.style.display = 'none';
             } else {
                 // Si aucun bâtiment n'a été cliqué, cacher la div
                 divCache.style.display = 'none';
@@ -2139,6 +2149,7 @@ Template Name: Map - Léopold OHNIMUS
                 divCacheMP.style.display = 'block';
                 draggableDiv.style.top = '650px'; //200
                 divRecherche.style.display = 'none';
+                btnLiv.style.display = 'none';
             }
         }   
     }
