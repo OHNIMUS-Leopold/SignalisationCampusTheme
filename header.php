@@ -71,4 +71,15 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
+
+
+
+// Vérifier si l'URL contient le mot "departement"
+if (window.location.href.includes('departement')) {
+    // Si oui, réactiver le défilement pour tous les éléments *
+    document.styleSheets[0].insertRule('* { overflow: auto !important; }', 0);
+} else {
+    // Sinon, conserver le défilement désactivé
+    document.styleSheets[0].insertRule('* { overflow: hidden !important; }', 0);
+}
 </script>
