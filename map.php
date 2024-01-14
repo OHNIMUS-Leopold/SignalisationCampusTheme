@@ -25,12 +25,12 @@ Template Name: Map - Léopold OHNIMUS
     </button>
 </form>
 
-<a href="<?php echo home_url('/livraison'); ?>">
+<button onclick="window.location.href='<?php echo home_url('/livraison'); ?>'" style="display: contents;">
     <div class="livrer">
         <img class="livrer-img" src="<?php echo get_template_directory_uri(); ?>/assets/icn/camion.svg" alt="Livraison">
         <p class="livrer-text">Livraison</p>
     </div>
-</a>
+</button>
 
 <div id="draggableDiv" class="draggable">
     <span id="draggableButton" class="spanBtn"></span>
