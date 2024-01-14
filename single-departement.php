@@ -3,10 +3,10 @@
 <div>
     <?php
     
-    // Récupérer l'ID du post actuel
+    // On récupère l'ID du post actuel
     $post_id = get_the_ID();
     
-    // Récupérer la valeur des champs personnalisés
+    // On récupère les valeurs des champs personnalisés
     $nom = get_post_meta($post_id, 'nom', true);
     $site = get_post_meta($post_id, 'site', true);
     $telephone = get_post_meta($post_id, 'telephone', true);
@@ -19,7 +19,7 @@
     $responsable_telephone = get_post_meta($post_id, 'responsable_telephone', true);
     $coordonnees = get_post_meta($post_id, 'coordonnees', true);
 
-    // Récupérer l'image à la une
+    // Idem pour l'image à la une
     $image = get_the_post_thumbnail_url($post_id, 'large');
     ?>
     
@@ -68,10 +68,10 @@
             <p class="title-resp">Créer un itinéraire</p>
             <div class="itineraire-img">
                 <?php
-                // Afficher le lien Google Maps avec les coordonnées GPS
-                echo '<a id="googleMapsLink" href="https://www.google.com/maps/dir/' . $startLatitude . ',' . $startLongitude . '/' . $coordonnees . '">' .
-                '<img src="' . get_template_directory_uri() . '/assets/apercuMaps.png" alt="créer un itinéraire">'
-                 . '</a>';
+                    // Afficher le lien Google Maps avec les coordonnées GPS
+                    echo '<a id="googleMapsLink" href="#">' .
+                    '<img src="' . get_template_directory_uri() . '/assets/apercuMaps.png" alt="créer un itinéraire">' .
+                    '</a>';
                 ?>
             </div>
         </div>
@@ -114,19 +114,13 @@
         startLatitude = position.coords.latitude;
         startLongitude = position.coords.longitude;
 
-        // Met à jour le lien Google Maps avec les nouvelles coordonnées
+        // On met à jour le lien Google Maps avec les nouvelles coordonnées de l'utilisateur
         const googleMapsLink = "https://www.google.com/maps/dir/" + startLatitude + "," + startLongitude + "/" + destinationCoordinates;
         document.getElementById('googleMapsLink').href = googleMapsLink;
     }
 
-    // Fonction pour surveiller la position de l'utilisateur toutes les 5 secondes
-    function watchUserPosition() {
+    // Appel de la fonction au chargement de la page pour obtenir les coordonnées initiales
+    document.addEventListener('DOMContentLoaded', function() {
         navigator.geolocation.getCurrentPosition(updateUserPosition);
-        console.log('Position mise à jour', startLatitude, startLongitude);
-    }
-
-    // Lancement de la surveillance de la position de l'utilisateur toutes les 5 secondes
-    setInterval(watchUserPosition, 1000);
+    });
 </script>
-
-

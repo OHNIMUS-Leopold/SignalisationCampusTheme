@@ -63,7 +63,7 @@
         // Récupération du terme de recherche
         $search_term = sanitize_text_field($_GET['search_term']);
 
-        // Utilisez WP_Query pour récupérer les résultats de recherche
+        // Récupération des résultats de recherche
         $args = array(
             // 'post_type' => array('departement', 'formation'),
             'post_type' => 'departement',
@@ -78,7 +78,6 @@
         // Boucle pour afficher les résultats
         if ($query->have_posts()) :
             while ($query->have_posts()) : $query->the_post();
-                // Affichez le contenu de votre type de contenu 'departement' ici
                 echo '<p class="list-item"><a class="list-item-link" href="' . get_permalink() . '">' . get_the_title() . '</a></p>';
                 echo '<hr class="list-item-hr">';
             endwhile;
@@ -86,17 +85,14 @@
             echo '<p class="list-item list-item-link" style="text-align: center;">Aucun résultat trouvé.</p>';
         endif;
 
-        // Réinitialisez les requêtes WordPress
+        // Réinitialisation des requêtes WordPress
         wp_reset_postdata();
-
-        // Assurez-vous d'arrêter l'exécution du script après avoir envoyé la réponse
         wp_die();
     }
 
 
     // Affichage des départements en fonction du numéro
 
-    // Ajoutez ceci dans votre fichier functions.php
     add_action('wp_ajax_filtrer_contenu_par_numero', 'filtrer_contenu_par_numero_callback');
     add_action('wp_ajax_nopriv_filtrer_contenu_par_numero', 'filtrer_contenu_par_numero_callback');
 
@@ -104,12 +100,11 @@
         // Récupération du numéro depuis la requête AJAX
         $numero = sanitize_text_field($_POST['numero']);
 
-        // Utilisez WP_Query pour récupérer le contenu en fonction du numéro
         $args = array(
             'post_type' => 'departement',
             'meta_query' => array(
                 array(
-                    'key' => 'numero', // Assurez-vous que c'est le nom correct de votre champ personnalisé
+                    'key' => 'numero', 
                     'value' => $numero,
                     'compare' => '='
                 )
@@ -121,10 +116,8 @@
         // Boucle pour afficher les résultats
         if ($query->have_posts()) :
             while ($query->have_posts()) : $query->the_post();
-                // Affichez le contenu de votre type de contenu 'departement' ici
                 $post_title = get_the_title();
                 // $post_content = get_the_content();
-                // Vous pouvez personnaliser cette partie en fonction de votre besoin
                 echo '<h1 class="preview-title">' . $post_title . '</h1>';
                 // Bouton vers la page du département
                 echo '<a class="preview-link" href="' . get_permalink() . '">Voir plus ></a>';
@@ -133,10 +126,8 @@
             echo '<p class="list-item list-item-link" style="text-align: center;">Aucune donnée à afficher.</p>';
         endif;
 
-        // Réinitialisez les requêtes WordPress
+        // Réinitialisation des requêtes WordPress
         wp_reset_postdata();
-
-        // Assurez-vous d'arrêter l'exécution du script après avoir envoyé la réponse
         wp_die();
     }
 
@@ -145,7 +136,6 @@
     
     // Cas de MP
 
-    // Ajoutez ceci dans votre fichier functions.php
     add_action('wp_ajax_filtrer_contenu_par_numeroMP', 'filtrer_contenu_par_numero_callbackMP');
     add_action('wp_ajax_nopriv_filtrer_contenu_par_numeroMP', 'filtrer_contenu_par_numero_callbackMP');
     
@@ -153,12 +143,11 @@
         // Récupération du numéro depuis la requête AJAX
         $numero = sanitize_text_field($_POST['numero']);
     
-        // Utilisez WP_Query pour récupérer le contenu en fonction du numéro
         $args = array(
             'post_type' => 'departement',
             'meta_query' => array(
                 array(
-                    'key' => 'numero', // Assurez-vous que c'est le nom correct de votre champ personnalisé
+                    'key' => 'numero', 
                     'value' => $numero,
                     'compare' => '='
                 )
@@ -170,10 +159,8 @@
         // Boucle pour afficher les résultats
         if ($query->have_posts()) :
             while ($query->have_posts()) : $query->the_post();
-                // Affichez le contenu de votre type de contenu 'departement' ici
                 $post_title = get_the_title();
                 // $post_content = get_the_content();
-                // Vous pouvez personnaliser cette partie en fonction de votre besoin
                 echo '<h1 class="preview-title">' . $post_title . '</h1>';
                 // Bouton vers la page du département
                 echo '<a class="preview-link" href="' . get_permalink() . '">Voir plus ></a>';
@@ -182,10 +169,8 @@
             echo '<p class="list-item list-item-link" style="text-align: center;">Aucune donnée à afficher.</p>';
         endif;
     
-        // Réinitialisez les requêtes WordPress
+        // Réinitialisation des requêtes WordPress
         wp_reset_postdata();
-    
-        // Assurez-vous d'arrêter l'exécution du script après avoir envoyé la réponse
         wp_die();
     }
 

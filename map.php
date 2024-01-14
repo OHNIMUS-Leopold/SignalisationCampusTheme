@@ -136,7 +136,7 @@ Template Name: Map - Léopold OHNIMUS
     // Chargement du modèle
     loader.load(
         // Path du modèle à charger
-        'http://localhost/signalisation/wp-content/uploads/2023/12/Base.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/Base.glb',
 
         // Fonction appelée lorsque le chargement est terminé
         function ( gltf ) {
@@ -196,7 +196,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderDecors = new GLTFLoader();
 
     loaderDecors.load(
-        'http://localhost/signalisation/wp-content/uploads/2023/12/Decor.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/Decor.glb',
 
         function ( gltf ) {
             decors = gltf.scene;
@@ -240,7 +240,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderBu = new GLTFLoader();
 
     loaderBu.load(
-        'http://localhost/signalisation/wp-content/uploads/2023/12/BU.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/BU.glb',
 
         function ( gltf ) {
             bu = gltf.scene;
@@ -292,7 +292,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderCentre = new GLTFLoader();
 
     loaderCentre.load(
-        'http://localhost/signalisation/wp-content/uploads/2023/12/Centre_Recherche.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/Centre_Recherche.glb',
 
         function ( gltf ) {
             centre = gltf.scene;
@@ -339,7 +339,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderCnam = new GLTFLoader();
 
     loaderCnam.load(
-        'http://localhost/signalisation/wp-content/uploads/2023/12/cnam.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/CNAM.glb',
 
         function ( gltf ) {
             cnam = gltf.scene;
@@ -386,7 +386,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderDejeps = new GLTFLoader();
 
     loaderDejeps.load(
-        'http://localhost/signalisation/wp-content/uploads/2023/12/DEJEPS.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/DEJEPS.glb',
 
         function ( gltf ) {
             dejeps = gltf.scene;
@@ -433,7 +433,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderGaco = new GLTFLoader();
 
     loaderGaco.load(
-        'http://localhost/signalisation/wp-content/uploads/2023/12/GACO.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/GACO.glb',
 
         function ( gltf ) {
             gaco = gltf.scene;
@@ -480,7 +480,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderGamphi = new GLTFLoader();
 
     loaderGamphi.load(
-        'http://localhost/signalisation/wp-content/uploads/2023/12/Grand_Amphi.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/Grand_Amphi.glb',
 
         function ( gltf ) {
             gamphi = gltf.scene;
@@ -527,7 +527,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderIfms = new GLTFLoader();
 
     loaderIfms.load(
-        'http://localhost/signalisation/wp-content/uploads/2023/12/ifms.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/IFMS.glb',
 
         function ( gltf ) {
             ifms = gltf.scene;
@@ -574,7 +574,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderLea = new GLTFLoader();
 
     loaderLea.load(
-        'http://localhost/signalisation/wp-content/uploads/2023/12/LEA.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/LEA.glb',
 
         function ( gltf ) {
             lea = gltf.scene;
@@ -621,7 +621,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderMinamas = new GLTFLoader();
 
     loaderMinamas.load(
-        'http://localhost/signalisation/wp-content/uploads/2023/12/MINAMAS.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/MINAMAS.glb',
 
         function ( gltf ) {
             minamas = gltf.scene;
@@ -668,7 +668,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderMmi = new GLTFLoader();
 
     loaderMmi.load(
-        'http://localhost/signalisation/wp-content/uploads/2023/12/MMI.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/MMI.glb',
 
         function ( gltf ) {
             mmi = gltf.scene;
@@ -716,7 +716,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderMp = new GLTFLoader();
 
     loaderMp.load(
-        'http://localhost/signalisation/wp-content/uploads/2023/12/MP.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/MP.glb',
 
         function ( gltf ) {
             mp = gltf.scene;
@@ -763,7 +763,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderNumerica = new GLTFLoader();
 
     loaderNumerica.load(
-        'http://localhost/signalisation/wp-content/uploads/2023/12/Numerica.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/Numerica.glb',
 
         function ( gltf ) {
             numerica = gltf.scene;
@@ -810,7 +810,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderNumerica2 = new GLTFLoader();
 
     loaderNumerica2.load(
-        'http://localhost/signalisation/wp-content/uploads/2023/12/Numerica2.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/Numerica2.glb',
 
         function ( gltf ) {
             numerica2 = gltf.scene;
@@ -857,7 +857,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderRt = new GLTFLoader();
 
     loaderRt.load(
-        'http://localhost/signalisation/wp-content/uploads/2023/12/RT.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/RT.glb',
 
         function ( gltf ) {
             rt = gltf.scene;
@@ -904,7 +904,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderRu = new GLTFLoader();
 
     loaderRu.load(
-        'http://localhost/signalisation/wp-content/uploads/2023/12/RU.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/RU.glb',
 
         function ( gltf ) {
             ru = gltf.scene;
@@ -951,7 +951,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderStgi = new GLTFLoader();
 
     loaderStgi.load(
-        'http://localhost/signalisation/wp-content/uploads/2023/12/STGI.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/STGI.glb',
 
         function ( gltf ) {
             stgi = gltf.scene;
@@ -998,7 +998,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderSve = new GLTFLoader();
 
     loaderSve.load(
-        'http://localhost/signalisation/wp-content/uploads/2023/12/SVE.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/SVE.glb',
 
         function ( gltf ) {
             sve = gltf.scene;
@@ -1045,7 +1045,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderSvea = new GLTFLoader();
 
     loaderSvea.load(
-        'http://localhost/signalisation/wp-content/uploads/2023/12/SVE_Amphi.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/SVE_Amphi.glb',
 
         function ( gltf ) {
             svea = gltf.scene;
@@ -1092,7 +1092,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderUtbm = new GLTFLoader();
 
     loaderUtbm.load(
-        'http://localhost/signalisation/wp-content/uploads/2023/12/UTBM.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/UTBM.glb',
 
         function ( gltf ) {
             utbm = gltf.scene;
@@ -1141,7 +1141,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderCrous = new GLTFLoader();
 
     loaderCrous.load(
-        'http://localhost/signalisation/wp-content/uploads/2024/01/Crous.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/Crous.glb',
 
         function ( gltf ) {
             crous = gltf.scene;
@@ -1190,7 +1190,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderPolyclinique = new GLTFLoader();
 
     loaderPolyclinique.load(
-        'http://localhost/signalisation/wp-content/uploads/2024/01/Polyclinique.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/Polyclinique.glb',
 
         function ( gltf ) {
             polyclinique = gltf.scene;
@@ -1244,7 +1244,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderPanneau1 = new GLTFLoader();
 
     loaderPanneau1.load(
-        'http://localhost/signalisation/wp-content/uploads/2024/01/blocpanneau.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/blocpanneau.glb',
 
         function ( gltf ) {
             panneau1 = gltf.scene;
@@ -1292,7 +1292,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderPanneau2 = new GLTFLoader();
 
     loaderPanneau2.load(
-        'http://localhost/signalisation/wp-content/uploads/2024/01/blocpanneau.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/blocpanneau.glb',
 
         function ( gltf ) {
             panneau2 = gltf.scene;
@@ -1338,7 +1338,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderPanneau3 = new GLTFLoader();
 
     loaderPanneau3.load(
-        'http://localhost/signalisation/wp-content/uploads/2024/01/blocpanneau.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/blocpanneau.glb',
 
         function ( gltf ) {
             panneau3 = gltf.scene;
@@ -1391,7 +1391,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderPanneau4 = new GLTFLoader();
 
     loaderPanneau4.load(
-        'http://localhost/signalisation/wp-content/uploads/2024/01/blocpanneau.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/blocpanneau.glb',
 
         function ( gltf ) {
             panneau4 = gltf.scene;
@@ -1439,7 +1439,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderPanneau5 = new GLTFLoader();
 
     loaderPanneau5.load(
-        'http://localhost/signalisation/wp-content/uploads/2024/01/blocpanneau.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/blocpanneau.glb',
 
         function ( gltf ) {
             panneau5 = gltf.scene;
@@ -1487,7 +1487,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderPanneau6 = new GLTFLoader();
 
     loaderPanneau6.load(
-        'http://localhost/signalisation/wp-content/uploads/2024/01/blocpanneau.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/blocpanneau.glb',
 
         function ( gltf ) {
             panneau6 = gltf.scene;
@@ -1535,7 +1535,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderPanneau7 = new GLTFLoader();
 
     loaderPanneau7.load(
-        'http://localhost/signalisation/wp-content/uploads/2024/01/blocpanneau.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/blocpanneau.glb',
 
         function ( gltf ) {
             panneau7 = gltf.scene;
@@ -1583,7 +1583,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderPanneau8 = new GLTFLoader();
 
     loaderPanneau8.load(
-        'http://localhost/signalisation/wp-content/uploads/2024/01/blocpanneau.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/blocpanneau.glb',
 
         function ( gltf ) {
             panneau8 = gltf.scene;
@@ -1681,7 +1681,7 @@ Template Name: Map - Léopold OHNIMUS
     const loaderUserCube = new GLTFLoader();
 
     loaderUserCube.load(
-        'http://localhost/signalisation/wp-content/uploads/2023/12/userpin.glb',
+        'https://signalisation-campus.leopold-ohnimus.fr/wp-content/uploads/2024/01/userpin.glb',
 
         function ( gltf ) {
             userCube = gltf.scene;
@@ -2156,7 +2156,7 @@ Template Name: Map - Léopold OHNIMUS
             // Requête AJAX vers le serveur WordPress
             $.ajax({
                 type: 'GET',
-                url: '<?php echo admin_url('admin-ajax.php'); ?>', // Utilisez la fonction admin_url pour obtenir le chemin correct
+                url: '<?php echo admin_url('admin-ajax.php'); ?>', 
                 data: {
                     action: 'search_departements', // Nom de l'action côté serveur
                     search_term: searchTerm
@@ -2191,7 +2191,7 @@ Template Name: Map - Léopold OHNIMUS
         // Requête AJAX vers le serveur WordPress
         $.ajax({
             type: 'POST',
-            url: '<?php echo admin_url('admin-ajax.php'); ?>', // Assurez-vous que 'ajaxurl' est défini dans votre script WordPress
+            url: '<?php echo admin_url('admin-ajax.php'); ?>',
             data: {
                 action: 'filtrer_contenu_par_numero',
                 numero: numero
@@ -2201,7 +2201,6 @@ Template Name: Map - Léopold OHNIMUS
                 // console.log(response);
                 $('#divCache').html(response);
 
-                // Utilisez la réponse pour afficher le contenu dans votre application JavaScript
             }
         });
     }
@@ -2222,7 +2221,7 @@ Template Name: Map - Léopold OHNIMUS
         // Requête AJAX vers le serveur WordPress
         $.ajax({
             type: 'POST',
-            url: '<?php echo admin_url('admin-ajax.php'); ?>', // Assurez-vous que 'ajaxurl' est défini dans votre script WordPress
+            url: '<?php echo admin_url('admin-ajax.php'); ?>', 
             data: {
                 action: 'filtrer_contenu_par_numeroMP',
                 numero: '11'
@@ -2232,10 +2231,6 @@ Template Name: Map - Léopold OHNIMUS
                 // console.log(response);
                 $('#divCacheMP').html(response);
 
-                // Utilisez la réponse pour afficher le contenu dans votre application JavaScript
-
-                // Si vous avez des liens dans le contenu ajouté dynamiquement,
-                // assurez-vous qu'ils soient également pris en charge par le délégué d'événements
                 $('#divCacheMP a').on('click', function (e) {
                     e.preventDefault();
                     window.location.href = $(this).attr('href');
